@@ -1,0 +1,16 @@
+.navBar {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bolder;
+  height: 10%;
+  width: 100%;
+  color: #404041;
+  background: #EFEFEF;
+  display: flex;
+  justify-content: space-evenly;
+  text-align: center;
+  align-items: center;
+}
+
+h1 {
+  height: fit-content;
+}

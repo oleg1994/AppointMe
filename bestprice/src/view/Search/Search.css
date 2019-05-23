@@ -1,0 +1,19 @@
+.searchWrapper{
+    display: flex;
+    margin: auto;
+    height: 8%;
+    width: 90%;
+    /* background: red; */
+}
+.search{
+    margin: auto;
+    height: 50%;
+    width: 70%;
+}
+.material-icons{
+    text-align: center;
+    margin: auto;
+    height: 50%;
+    width: 20%;
+    border:2px solid grey;
+}

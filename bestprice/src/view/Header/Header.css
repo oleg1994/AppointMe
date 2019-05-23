@@ -1,0 +1,23 @@
+.header {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bolder;
+  height: 5%;
+  width: 100%;
+  /* border:3px solid rgba(178, 181, 184, 0.658); */
+  color: white;
+  background: skyblue;
+  display: flex;
+  justify-content: space-evenly;
+  text-align: center;
+  align-items: center;
+}
+
+.register {
+  height: fit-content;
+  width: 100%;
+}
+
+.login {
+  height: fit-content;
+  width: 100%;
+}

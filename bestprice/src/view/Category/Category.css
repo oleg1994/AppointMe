@@ -1,0 +1,32 @@
+.selection {
+  font-family: 'Montserrat', sans-serif;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.item {
+  height: 100px;
+  width: 100px;
+  background: blueviolet;
+  margin: 40px;
+}
+
+.Title {
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  justify-content: space-evenly;
+  text-align: center;
+  align-items: center;
+  height: 10%;
+  font-weight: bolder;
+  font-size: 25px;
+}
+
+.rowOne{
+  height: fit-content;
+}
+.rowTwo{
+  height: fit-content;
+}
