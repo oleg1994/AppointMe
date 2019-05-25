@@ -1,0 +1,53 @@
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.navBar {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bolder;
+    height: 10%;
+    width: 100%;
+    color: #404041;
+    background: #EFEFEF;
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    align-items: center;
+}
+
+.logo {
+    color: #404041;
+    height: fit-content;
+    font-size: 30px;
+}
+
+.material-icons {
+    height: fit-content;
+    color: #404041;
+    font-size: 40px;
+}
+
+.header {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bolder;
+    height: 5%;
+    width: 100%;
+    background: skyblue;
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    align-items: center;
+}
+
+.register {
+    height: fit-content;
+    width: 100%;
+    color: white;
+}
+
+.login {
+    height: fit-content;
+    width: 100%;
+    color: white;
+}

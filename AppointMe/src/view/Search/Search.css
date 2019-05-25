@@ -1,19 +1,26 @@
-.searchWrapper{
+.searchWrapper {
     display: flex;
     margin: auto;
     height: 8%;
     width: 90%;
     /* background: red; */
 }
-.search{
+
+.search {
     margin: auto;
     height: 50%;
     width: 70%;
 }
-.material-icons{
+
+.searchIcon {
     text-align: center;
     margin: auto;
     height: 50%;
     width: 20%;
-    border:2px solid grey;
+    border: 2px solid grey;
+}
+
+.searchSize {
+    height: 90%;
+    width: 50%;
 }

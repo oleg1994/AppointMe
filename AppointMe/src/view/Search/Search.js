@@ -1,12 +1,13 @@
 import React from 'react';
-// import logo from './logo.svg';
 import './Search.css';
+import searchIcon from './../images/search.png';
+
 
 function Search() {
     return (
       <div className='searchWrapper'>
       <input className='search' type="text" name="fname"></input>
-      <i className="material-icons">search</i>
+        <div className='searchIcon'><img src={searchIcon} alt="Logo" className='searchSize'/></div>
       </div>
     );
 }

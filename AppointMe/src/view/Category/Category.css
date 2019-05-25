@@ -9,8 +9,10 @@
 .item {
   height: 100px;
   width: 100px;
-  background: blueviolet;
   margin: 40px;
+  font-weight: bolder;
+  font-family: 'Montserrat', sans-serif;
+  color: #404041;
 }
 
 .Title {
@@ -24,9 +26,17 @@
   font-size: 25px;
 }
 
-.rowOne{
+.rowOne {
   height: fit-content;
 }
-.rowTwo{
+
+.rowTwo {
   height: fit-content;
+}
+
+.categoryImg {
+  border-radius: 10%;
+  background: skyblue;
+  height: 100px;
+  width: 100px;
 }
