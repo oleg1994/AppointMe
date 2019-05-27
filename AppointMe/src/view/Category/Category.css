@@ -1,9 +1,13 @@
+.wrapperCat{
+  height: 100%;
+  width: 100%;
+}
 .selection {
   font-family: 'Montserrat', sans-serif;
   height: 100%;
   width: 100%;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 
 .item {
@@ -28,10 +32,13 @@
 
 .rowOne {
   height: fit-content;
+  width: fit-content;
 }
 
 .rowTwo {
   height: fit-content;
+  width: fit-content;
+
 }
 
 .categoryImg {

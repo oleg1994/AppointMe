@@ -4,17 +4,14 @@ import './Nav.css';
 
 
 
-class Nav extends React.Component {
-  render() {
+function Nav() {
     return (
-    
       <div className='navBar'>
           <Link to={`/`} className='logo'>Home</Link>
-          <i className="material-icons">menu</i>
-      </div>
-      
+        <i className="material-icons" >menu</i>
+        </div>
     );
 }
-}
+
 
 export default Nav;

@@ -6,9 +6,9 @@ function Header() {
   return (
     <Router>
       <div className='header'>
-        <Link to={`/`} className='register'>Register</Link>
-        <Link to={`/`} className='login'>Sign in!</Link>
-      </div>
+          <Link to={`/placeholder`} className='register'>Register</Link>
+          <Link to={`/placeholder`} className='login'>Sign in!</Link>
+        </div>
     </Router>
 
   );

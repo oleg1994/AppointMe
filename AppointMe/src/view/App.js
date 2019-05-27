@@ -4,20 +4,16 @@ import './App.css';
 import Category from './Category/Category';
 import Sort from './Sort/Sort';
 import Hair from './Category/sub-pages/Hair'
+import Nav from './Nav/Nav';
+import Header from './Header/Header';
 
 
 function App() {
   return (
     <Router>
       <div className="main">
-        <div className='header'>
-          <Link to={`/placeholder`} className='register'>Register</Link>
-          <Link to={`/placeholder`} className='login'>Sign in!</Link>
-        </div>
-        <div className='navBar'>
-          <Link to={`/`} className='logo'>Home</Link>
-        <i className="material-icons" >menu</i>
-        </div>
+        <Header/>
+        <Nav/>
         <Route exact={true} path='/' component={Category} />
         <Route path='/placeholder' component={Sort} />
         <Route path='/hair-salons' component={Hair} />

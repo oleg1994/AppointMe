@@ -7,7 +7,7 @@ import nail from './../images/nail.jpg';
 
 function Nav() {
   return (
-    <div>
+    <div className='wrapperCat'>
       <div className='Title'>Choose the service you looking for</div>
       <div className='selection'>
         <div className='rowOne'>
