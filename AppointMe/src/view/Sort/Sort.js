@@ -6,8 +6,8 @@ function Sort() {
     return (
       <div className='sortWrapper'>
       <div>Sort by:</div>
-      <div></div>
       <div>Featured</div>
+      <div>Distance</div>
       </div>
     );
 }
