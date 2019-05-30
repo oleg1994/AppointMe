@@ -6,7 +6,7 @@ import searchIcon from './../images/search.png';
 function Search() {
     return (
       <div className='searchWrapper'>
-      <input className='search' type="text" name="fname"></input>
+      <input className='searchInput' type="text"></input>
         <div className='searchIcon'><img src={searchIcon} alt="Logo" className='searchSize'/></div>
       </div>
     );

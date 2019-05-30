@@ -3,9 +3,9 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 import Category from './Category/Category';
 import Sort from './Sort/Sort';
-import Hair from './Category/sub-pages/Hair'
 import Nav from './Nav/Nav';
 import Header from './Header/Header';
+import Service from './Category/Service'
 
 
 function App() {
@@ -16,7 +16,10 @@ function App() {
         <Nav/>
         <Route exact={true} path='/' component={Category} />
         <Route path='/placeholder' component={Sort} />
-        <Route path='/hair-salons' component={Hair} />
+        <Route path='/service/:id' component={Service} />
+
+        
+       
       </div>
      
       

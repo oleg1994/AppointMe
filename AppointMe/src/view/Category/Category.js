@@ -12,13 +12,13 @@ function Nav() {
       <div className='selection'>
         <div className='rowOne'>
           <div className='item'>
-            <Link to={`/hair-salons`} >
+            <Link to={`/service/hair-salons`} >
               <img src={hair} alt="Logo" className='categoryImg' />
             </Link>
             Hair Salon's
           </div>
           <div className='item'>
-            <Link to={`/placeholder`} >
+            <Link to={`/service/nail-salons`} >
               <img src={nail} alt="Logo" className='categoryImg' />
             </Link>
             Nail Salon's

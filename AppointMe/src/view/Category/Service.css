@@ -1,0 +1,98 @@
+.serviceWrapper {
+    height: 100%
+}
+
+.Buisness {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 15px auto auto auto;
+    height: 160px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    border: 1px solid skyblue;
+    box-shadow: 2px 2px 2px 0px skyblue;
+    width: 95%;
+    transition: box-shadow, 1.15s, ease-in;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.bizImage {
+    border-radius: 5px;
+    height: 70px;
+    width: 70px;
+    margin: 15px 0px 0px 15px;
+}
+
+.bizTitle {
+    margin: 15px auto auto 10px;
+    width: fit-content;
+    height: fit-content;
+}
+
+.bizInfo {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    height: fit-content;
+}
+
+.bizMenu {
+    margin: 12px auto 10px 15px;
+    height: fit-content;
+    width: fit-content;
+}
+
+.serviceItem {
+    margin-top: 3px;
+    height: fit-content;
+    width: fit-content;
+}
+
+.BizPage {
+    display: flex;
+    height: 10px;
+    width: 100%;
+    background: red;
+}
+
+/* BUTTON */
+
+.button {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #f4511e;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 28px;
+    padding: 20px;
+    width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.button:hover span {
+    padding-right: 25px;
+}
+
+.button:hover span:after {
+    opacity: 1;
+    right: 0;
+}

@@ -1,26 +1,24 @@
 .searchWrapper {
+    box-sizing: border-box;
     display: flex;
-    margin: auto;
-    height: 8%;
-    width: 90%;
-    /* background: red; */
+    margin: 25px auto auto auto;
+    height: 50px;
+    width: 100%;
 }
 
-.search {
-    margin: auto;
-    height: 50%;
-    width: 70%;
+.searchInput {
+    border: 1px solid grey;
+    height: 40px;
+    width: 90%;
 }
 
 .searchIcon {
-    text-align: center;
-    margin: auto;
-    height: 50%;
-    width: 20%;
-    border: 2px solid grey;
+    width: 30%;
+    height: 40px;
+    border: 1px solid grey;
 }
 
 .searchSize {
-    height: 90%;
-    width: 50%;
+    height: 40px;
+    width: 100%;
 }
