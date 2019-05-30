@@ -24,7 +24,7 @@ function Service({ match }) {
                                 <div className='serviceItem'>...more</div>
                             </div>
                         </div>
-                        {/* <div className='BizPage'></div> */}
+                        <div className='BizPage'></div>
                     </div>
 
                 </div>

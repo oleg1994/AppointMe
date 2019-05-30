@@ -10,7 +10,7 @@
     background-color: #ffffff;
     border-radius: 5px;
     border: 1px solid skyblue;
-    box-shadow: 2px 2px 2px 0px skyblue;
+    box-shadow: 2px 2px 2px 0px  #404041;
     width: 95%;
     transition: box-shadow, 1.15s, ease-in;
     font-family: 'Montserrat', sans-serif;
