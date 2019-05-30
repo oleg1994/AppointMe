@@ -6,6 +6,7 @@ import Sort from './Sort/Sort';
 import Nav from './Nav/Nav';
 import Header from './Header/Header';
 import Service from './Category/Service'
+import Register from './Register/Register'
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Route exact={true} path='/' component={Category} />
         <Route path='/placeholder' component={Sort} />
         <Route path='/service/:id' component={Service} />
+        <Route path='/register' component={Register} />
 
         
        

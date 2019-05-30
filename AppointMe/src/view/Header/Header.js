@@ -4,12 +4,10 @@ import { BrowserRouter as Router, Link} from 'react-router-dom';
 
 function Header() {
   return (
-    <Router>
       <div className='header'>
-          <Link to={`/placeholder`} className='register'>Register</Link>
-          <Link to={`/placeholder`} className='login'>Sign in!</Link>
+          <Link to={'/register'} className='headerBlock'>Register</Link>
+          <Link to={`/placeholder`} className='headerBlock'>Sign in!</Link>
         </div>
-    </Router>
 
   );
 }
