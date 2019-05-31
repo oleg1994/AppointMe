@@ -28,6 +28,7 @@
 }
 
 .regTitle {
+    text-decoration:underline grey;
     margin-top: 30px;
     margin-bottom: 30px;
     height: fit-content;
@@ -35,4 +36,19 @@
     text-align: center;
     font-size: 20px;
     font-weight: 600
+}
+
+.MatchError {
+    background: #AD2930;
+    color: white;
+    height: fit-content;
+    width: fit-content;
+    
+}
+
+.MatchErrorWrapper {
+ 
+    display: flex;
+    height: fit-content;
+    width: fit-content;
 }
