@@ -13,7 +13,7 @@
     background-color: #ffffff;
     border-radius: 5px;
     border: 1px solid skyblue;
-    box-shadow: 2px 2px 2px 0px  #404041;
+    box-shadow: 2px 2px 2px 0px #404041;
     width: 95%;
     transition: box-shadow, 1.15s, ease-in;
     font-family: 'Montserrat', sans-serif;
@@ -51,12 +51,11 @@
     height: fit-content;
     width: fit-content;
     font-weight: 500;
-
 }
 
 /* BUTTON */
 
-.bookButton{
+.bookButton {
     margin: 30px auto auto auto;
     height: 30px;
     width: 100%;
@@ -69,6 +68,7 @@
     color: #FFFFFF;
     font-weight: 700;
 }
+
 .bookButton:hover {
-    background: rgb(134, 43, 10);
-  }
+    background: rgb(204, 67, 17);
+}

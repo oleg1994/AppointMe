@@ -50,6 +50,7 @@ app.post('/newUser', (req, res) => { //receiving user info and saving
             res.send({err})
         }
         if (result.length) {
+            console.log(result)
             res.send({check:'taken'})
 
         } else {
