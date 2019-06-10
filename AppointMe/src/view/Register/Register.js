@@ -15,7 +15,6 @@ function Register() {
   function register(e) {
     e.preventDefault()
     let userInfo = { user: `${user}`, password: `${password}`, email: `${email}`}
-    console.log(userInfo)
     if (password === passwordMatch) {
       setMatchError(``)
 
@@ -35,18 +34,15 @@ function Register() {
      
     } else {
       setMatchError(<div className='MatchError'>✗ The passwords don't match</div>)
-      console.log('else nope')
     }
-
 
   }
 
 
   return (
     <form className='registerWrapper' onSubmit={register}>
-
       <div className='regTitle'>Create a AppointMe Account</div>
-      <div className='inputPos'>Username<input className='inputSelf' id="name" type='text' required value={user} onChange={e => setUser(e.target.value)} pattern=".{4,}" title="The username must be at least 4 characters long"></input></div>
+      <div className='inputPos'>Username<input className='inputSelf' type='text' required value={user} onChange={e => setUser(e.target.value)} pattern=".{4,}" title="The username must be at least 4 characters long"></input></div>
       <div className='inputPos'>Email<input className='inputSelf' type='email' required value={email} onChange={e => setEmail(e.target.value)} pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="The email you entered isn't a valid address"></input></div>
       <div className='inputPos'>Password<input className='inputSelf' type='password' required value={password} onChange={e => setPassword(e.target.value)} pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"></input></div>
       <div className='inputPos'><div className='MatchErrorWrapper'>Confirm Password&nbsp;&nbsp;&nbsp;{MatchError}</div><input className='inputSelf' type='password' required value={passwordMatch} onChange={e => setPasswordMatch(e.target.value)} pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"></input></div>
