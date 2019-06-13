@@ -24,19 +24,4 @@ const UserSchema = new mongoose.Schema({
         default: Date.now
     }
 });
-
-var user = this;
-
-
-UserSchema.methods.isCorrectPassword = function (possiblePassword, callback) {
-    bcrypt.compare(possiblePassword, this.password, function (err, same) {
-        if (err) {
-            callback(err);
-        } else {
-            callback(err, same);
-        }
-    });
-}
-
-
 module.exports = mongoose.model('User', UserSchema);

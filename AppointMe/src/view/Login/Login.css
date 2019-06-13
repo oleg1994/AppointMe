@@ -28,7 +28,7 @@
 }
 
 .regTitle {
-    text-decoration:underline grey;
+    text-decoration: underline grey;
     margin-top: 30px;
     margin-bottom: 30px;
     height: fit-content;
@@ -38,17 +38,12 @@
     font-weight: 600
 }
 
-.MatchError {
+.InvalidUser {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    height: fit-content;
     background: #AD2930;
     color: white;
-    height: fit-content;
-    width: fit-content;
-    
-}
-
-.MatchErrorWrapper {
- 
-    display: flex;
-    height: fit-content;
-    width: fit-content;
 }

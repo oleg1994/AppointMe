@@ -1,54 +1,113 @@
-.registerWrapper {
+.DashboardWrapper {
     height: 100%;
     width: 100%;
-    display: flex;
-    flex-direction: column;
 }
 
-.inputSelf {
-    border: none;
-    border-bottom: 1px solid #CCCCCC;
-    height: 30px;
-    width: 100%;
-    align-self: center;
-}
-
-.inputSelf:focus {
-    outline: none;
-    border-bottom: 2px solid #2196F3;
-}
-
-.inputPos {
-    margin: 10px;
-    height: 50px;
-    width: 90%;
-    display: flex;
-    flex-direction: column;
-    align-self: center;
-}
-
-.regTitle {
-    text-decoration:underline grey;
-    margin-top: 30px;
-    margin-bottom: 30px;
+.dashboardTitle {
+    color: transparent;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    text-shadow: 3px 5px 2px rgb(0, 0, 0);
+    margin-top: 8px;
+    margin-bottom: 8px;
     height: fit-content;
-    width: 100%;
     text-align: center;
-    font-size: 20px;
-    font-weight: 600
+    font-size: 23px;
+    font-weight: 600;
 }
 
-.MatchError {
-    background: #AD2930;
-    color: white;
-    height: fit-content;
-    width: fit-content;
-    
+.nameNphoto {
+    -webkit-box-shadow: 5px 5px 15px 9px rgba(158, 158, 158, 0.23);
+    box-shadow: 5px 5px 15px 9px rgba(158, 158, 158, 0.23);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 15%;
+    border-bottom: 2px skyblue solid;
+    border-top: 2px skyblue solid;
 }
 
-.MatchErrorWrapper {
- 
+.userPhoto {
+    height: 60%;
+    width: 25%;
+}
+
+.userName {
+    font-weight: 600;
     display: flex;
     height: fit-content;
     width: fit-content;
+}
+
+.AppointTitle {
+    color: transparent;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    text-shadow: 3px 5px 1px rgb(19, 19, 19);
+    margin-top: 8px;
+    margin-bottom: 8px;
+    margin-left: 8px;
+    height: fit-content;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.AppointmentList {
+    height: 100%;
+    width: 100%
+}
+
+.appointItem {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    margin-left: 1%;
+    margin-right: 1%;
+    height: 25%;
+    width: 98%;
+    background: rgba(236, 233, 230, 0.493);
+    background: -webkit-linear-gradient(to right, rgba(255, 255, 255, 0.418), rgba(236, 233, 230, 0.411));
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.342), rgba(236, 233, 230, 0.377));
+    border: 2px solid #EFEFEF;
+    -webkit-box-shadow: 5px 5px 15px 9px rgba(158, 158, 158, 0.23);
+    box-shadow: 5px 5px 15px 9px rgba(158, 158, 158, 0.23);
+    border: 2px solid rgb(197, 188, 188);
+}
+
+.topWrapper {
+    display: flex;
+    height: 10%;
+}
+
+.placeName {
+    margin-top: 10px;
+    margin-left: 15px;
+    height: fit-content;
+    font-weight: 700;
+    width: fit-content;
+    background: rgba(128, 128, 128, 0.527);
+    font-size: 18px;
+    padding: 1px;
+    color: rgb(68, 101, 107);
+}
+
+.editAppoint {
+    font-size: 30px;
+    height: fit-content;
+    width: fit-content;
+    margin-left: 150px;
+}
+
+.middleWrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.placePhoto {
+    margin-top: 30px;
+    margin-left: 30px;
+    width: 30%;
+    height: 50px;;
 }
