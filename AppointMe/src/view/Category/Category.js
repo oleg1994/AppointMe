@@ -1,11 +1,12 @@
-import React from 'react';
-import {Link} from 'react-router-dom';
+import React, { } from 'react';
+import { Link } from 'react-router-dom';
 import './Category.css';
 import hair from './../images/hair.png';
 import nail from './../images/nail.jpg';
 
 
-function Nav() {
+function Category(props) {
+
   return (
     <div className='wrapperCat'>
       <div className='Title'>Choose the service you looking for</div>
@@ -56,4 +57,4 @@ function Nav() {
   );
 }
 
-export default Nav;
+export default Category;

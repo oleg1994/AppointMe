@@ -19,14 +19,16 @@ const jwt = require('jsonwebtoken');
 
 //Exports
 const User = require('./models/User')
-// const auth = require('./Auth')
+const Businesses = require('./models/Businesses')
+const Appointments = require('./models/Appointment')
+
 
 
 
 // App ~uses~
 app.use(cors());
 app.use(express.json());
-// const jwtSecret = 'SecretJwt'
+
 
 
 
@@ -44,7 +46,6 @@ db.once('open', function () {
 
 
 app.get('/', function (req, res) {
-    res.sendFile(path.join(__dirname, '../public', 'index.html'));
 });
 
 
@@ -112,17 +113,80 @@ app.post('/Login', function (req, res) {
     })
 });
 
-app.post('/checkifLogged', function (req, res) {
-    const { loginToken } = req.body;
-    if (loginToken == null){
-        console.log(loginToken, 'in if null')
-        res.send({ connected: 'false' })
-    }
-    if (loginToken == true) {
-        console.log(loginToken, 'in if true')
-        res.send({ connected:'true'})
-    }
+app.post('/getuserInfo', function (req, res) {
+    const { token } = req.body;
+    User.findById(token, '-password').exec(function (err, result) {
+        if(err){
+            console.log('error in getuserInfo')
+        }
+        if(result == undefined){
+            console.log('user not found')
+        }
+        if(result){
+            const {username} = result
+            res.send({username})
+        }
+    });  
 });
+app.post('/getbusinessInfo', function (req, res) {
+    const { idk } = req.body;
+//     Businesses.findById(id, function (err, result) {
+// console.log(result)
+     });
+
+
+
+   
+    app.get('/getBusinesses', function (req, res) {
+        Businesses.find({}, { clients: 0, date: 0 }, function (err, result) {
+           if(err){
+               console.log('error')
+           }
+            if (result){
+                res.send(result)
+           }
+        });
+});
+app.post('/getOneBusinesses', function (req, res) {
+    const {service} = req.body
+    Businesses.findById(service, '-clients').exec(function (err, result) {
+            if (err) {
+                console.log('error')
+            }
+            if (result) {
+                res.send(result)
+            }
+       
+        });  
+});
+
+
+
+
+
+
+// let newBusinesse = new Businesses({
+//     name: 'req.body.user',
+//     location: 'req.body.email',
+//     clients: 'hashedPassword',
+// });
+// newBusinesse.save(function (err, newBusinesse) {
+//     if (err) return console.error(err);
+// });
+
+
+
+
+
+
+// let newAppointment = new Appointments({
+//     usernameID: 'userID',
+//     buisnessesID: 'buisnessesID',
+//     dateOfAppointment: 'SELECTEDTIME',
+// });
+// newAppointment.save(function (err, newAppointment) {
+//     if (err) return console.error(err);
+// });
 
 
 

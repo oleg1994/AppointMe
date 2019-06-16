@@ -1,0 +1,76 @@
+.serviceWrapper {
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    align-items: center;
+}
+
+.Buisness {
+    overflow: hidden;
+    display: flex;
+    margin: 25px auto auto auto;
+    height: 160px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    border: 1px solid skyblue;
+    box-shadow: 2px 2px 2px 0px #404041;
+    width: 95%;
+    transition: box-shadow, 1.15s, ease-in;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+
+.bizImage {
+    border-radius: 5px;
+    height: 120px;
+    width: 120px;
+    margin: 15px 0px 0px 15px;
+}
+
+.bizTitle {
+    margin: 15px auto auto 10px;
+    width: fit-content;
+    height: fit-content;
+}
+
+.bizInfo {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    height: fit-content;
+}
+
+.bizMenu {
+    margin: 12px auto 10px 15px;
+    height: fit-content;
+    width: fit-content;
+}
+
+.serviceItem {
+    margin-top: 1px;
+    height: fit-content;
+    width: fit-content;
+    font-weight: 500;
+}
+
+/* BUTTON */
+
+.bookButton {
+    margin: 30px auto auto auto;
+    height: 30px;
+    width: 100%;
+    background: orangered;
+    border-radius: 3%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: #FFFFFF;
+    font-weight: 700;
+}
+
+.bookButton:hover {
+    background: rgb(204, 67, 17);
+}
+
+

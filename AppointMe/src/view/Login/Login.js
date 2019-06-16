@@ -4,20 +4,19 @@ import './../Login/Login.css'
 
 
 
+
 function Login(props) {
 
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
   const [InvalidUser, setInvalidUser] = useState("");
   
-  
+
+
   
   function loginFetch(e) {
     e.preventDefault()
     let userInfo = { username: `${user}`, password: `${password}`}
-    
-   
-
     fetch('http://localhost:4000/Login', {
       method: 'POST',
       body: JSON.stringify(userInfo),
@@ -32,7 +31,9 @@ function Login(props) {
         }
         if (response.logged === true){
           localStorage.setItem('logged-token', response.TheToken)
-          props.history.push('/');
+          props.history.push('/')
+          window.location.reload();
+
 
         }
       })
@@ -40,6 +41,9 @@ function Login(props) {
     
 }
 
+ 
+
+  
 
   return (
     <form className='registerWrapper' onSubmit={loginFetch}>
@@ -51,6 +55,7 @@ function Login(props) {
     </form>
   );
 }
+
 
 
 export default Login;

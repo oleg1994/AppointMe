@@ -15,6 +15,14 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    appoointments: {
+        type: Array,
+        required: true
+    },
+    avatar: {
+        type: String,
+        required: true
+    },
     access: {
         type: String,
         required: true
