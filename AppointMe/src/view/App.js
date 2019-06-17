@@ -10,17 +10,33 @@ import Register from './Register/Register'
 import Login from './Login/Login'
 import Dashboard from './Dashboard/Dashboard'
 import Appointment from './Appointment/Appointment';
-
-// import Hair from './Services/Hair-salon/Hair';
-// import Nail from './Services/Nail-salon/Nail';
-
-
-
+import { StateProvider } from '../Context/state';
 
 
 
 function App() {
+const appState = {
+    loginCheck: { status: 'false' },
+};
+
+const reducer = (state, action) => {
+  switch (action.type) {
+      case 'changeLoginStatus':
+          return {
+              ...state,
+              loginCheck: action.payload
+          };
+      default:
+          return state;
+  }
+};
+
+
+
+
+
   return (
+    <StateProvider appState={appState} reducer={reducer}>
     <Router>
       <div className="main">
         <Header/>
@@ -32,10 +48,9 @@ function App() {
         <Route path='/login' component={Login}/>
         <Route path='/dashboard' component={Dashboard} />
         <Route path='/appointment' component={Appointment} />
-        {/* <Route path='/service/hair-salons' component={Hair} />
-        <Route path='/service/nail-salons' component={Nail} /> */}
       </div>
     </Router>
+    </StateProvider>
   );
 }
 

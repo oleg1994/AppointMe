@@ -7,15 +7,6 @@ const bcrypt = require('bcryptjs');
 
 
 
-
-
-
-
-
-
-
-
-
 //Exports
 const User = require('./models/User')
 const Businesses = require('./models/Businesses')

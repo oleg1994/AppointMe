@@ -17,15 +17,12 @@ const UserSchema = new mongoose.Schema({
     },
     appoointments: {
         type: Array,
-        required: true
     },
     avatar: {
         type: String,
-        required: true
     },
     access: {
         type: String,
-        required: true
     },
     date: {
         type: Date,

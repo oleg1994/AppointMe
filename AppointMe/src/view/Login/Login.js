@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './../Login/Login.css'
+import {useStateValue} from '../../Context/state';
+
 
 
 
@@ -10,7 +12,8 @@ function Login(props) {
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
   const [InvalidUser, setInvalidUser] = useState("");
-  
+  const [, dispatchloginCheck] = useStateValue();
+
 
 
   
@@ -31,10 +34,11 @@ function Login(props) {
         }
         if (response.logged === true){
           localStorage.setItem('logged-token', response.TheToken)
+          dispatchloginCheck({
+            type: 'changeLoginStatus',
+            payload: { status: 'true' }  //payload
+        })
           props.history.push('/')
-          window.location.reload();
-
-
         }
       })
       .catch(error => console.error('Error:', error));

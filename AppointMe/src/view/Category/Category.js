@@ -9,7 +9,7 @@ function Category(props) {
 
   return (
     <div className='wrapperCat'>
-      <div className='Title'>Choose the service you looking for</div>
+      <div className='Title'>Choose the service</div>
       <div className='selection'>
         <div className='rowOne'>
           <div className='item'>

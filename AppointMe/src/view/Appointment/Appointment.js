@@ -8,7 +8,7 @@ import './../Appointment/Appointment.css'
 function Appointment(props) {
   const [serviceName, setserviceName] = useState('')
 
-  const [selectedService, setSelectedService] = useState([])
+  // const [selectedService, setSelectedService] = useState([])
 
 
   useEffect(() => {
