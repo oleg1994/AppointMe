@@ -16,10 +16,11 @@
 .AppointName {
     border: 3px solid rgb(25, 76, 88);
     width: 100%;
-    height: 5%;
+    height: fit-content;
     font-size: 25px;
     display: flex;
     justify-content: center;
+    padding:2px;
 }
 
 .ServiceSelection {
@@ -28,6 +29,7 @@
     height: fit-content;
     display: flex;
     justify-content: center;
+    align-content: flex-start;
 }
 
 .ServiceType {
@@ -58,3 +60,4 @@
     height: 30%;
     width: 100%;
 }
+

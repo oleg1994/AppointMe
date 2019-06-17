@@ -4,7 +4,6 @@ const app = express();
 const mongoose = require('mongoose');
 const port = process.env.PORT || 4000;
 const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
 
 
 
@@ -165,28 +164,28 @@ app.post('/getOneBusinesses', function (req, res) {
 
 
 
-// let newBusinesse = new Businesses({
-//     name: 'req.body.user',
-//     location: 'req.body.email',
-//     clients: 'hashedPassword',
-// });
-// newBusinesse.save(function (err, newBusinesse) {
-//     if (err) return console.error(err);
-// });
+let newBusinesse = new Businesses({
+    name: 'The barbers ',
+    location: 'at barbers place',
+    clients: 'hashedPassword',
+});
+newBusinesse.save(function (err, newBusinesse) {
+    if (err) return console.error(err);
+});
 
 
 
 
 
 
-// let newAppointment = new Appointments({
-//     usernameID: 'userID',
-//     buisnessesID: 'buisnessesID',
-//     dateOfAppointment: 'SELECTEDTIME',
-// });
-// newAppointment.save(function (err, newAppointment) {
-//     if (err) return console.error(err);
-// });
+let newAppointment = new Appointments({
+    usernameID: 'userID',
+    buisnessesID: 'buisnessesID',
+    dateOfAppointment: 'SELECTEDTIME',
+});
+newAppointment.save(function (err, newAppointment) {
+    if (err) return console.error(err);
+});
 
 
 
