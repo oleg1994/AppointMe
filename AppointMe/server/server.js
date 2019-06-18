@@ -155,28 +155,28 @@ app.post('/getOneBusinesses', function (req, res) {
 
 
 
-let newBusinesse = new Businesses({
-    name: 'The barbers ',
-    location: 'at barbers place',
-    clients: 'hashedPassword',
-});
-newBusinesse.save(function (err, newBusinesse) {
-    if (err) return console.error(err);
-});
+// let newBusinesse = new Businesses({
+//     name: 'The barbers ',
+//     location: 'at barbers place',
+//     clients: 'hashedPassword',
+// });
+// newBusinesse.save(function (err, newBusinesse) {
+//     if (err) return console.error(err);
+// });
 
 
 
 
 
 
-let newAppointment = new Appointments({
-    usernameID: 'userID',
-    buisnessesID: 'buisnessesID',
-    dateOfAppointment: 'SELECTEDTIME',
-});
-newAppointment.save(function (err, newAppointment) {
-    if (err) return console.error(err);
-});
+// let newAppointment = new Appointments({
+//     usernameID: 'userID',
+//     buisnessesID: 'buisnessesID',
+//     dateOfAppointment: 'SELECTEDTIME',
+// });
+// newAppointment.save(function (err, newAppointment) {
+//     if (err) return console.error(err);
+// });
 
 
 
