@@ -57,21 +57,18 @@ function Appointment(props) {
 
 
 
-  function selectedDate (date) {
-      setDate({ date })
+  function selectedDate(date) {
+    setDate({ date })
     console.log(date)
-    }
-
+    
+  }
+ 
 
   if (renderOptions === 'timeSelect') {
     return (
       <div className='AppointmentWrapper'>
         <div className='AppointName'>Select the day of appointment</div>
-
-
-
-
-        <Calendar onChange={selectedDate} />
+        <Calendar onChange={selectedDate} returnValue='end' showNavigation={false} tileDisabled={({ activeStartDate, date, view }) => date.getDay() === 6} tileContent={({date, view }) => view === 'month' && date.getDay() === 1 ? <p>It's Sunday!</p> : null} />
       </div>
 
 
