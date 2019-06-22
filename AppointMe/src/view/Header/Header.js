@@ -18,7 +18,6 @@ function Header(props) {
       payload: { status: 'false' }  //payload
   })
     localStorage.removeItem('logged-token');
-    // window.location.reload();
   }
 
 

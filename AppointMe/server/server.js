@@ -96,7 +96,7 @@ app.post('/Login', function (req, res) {
                     res.send({ logged: false })
                 }
                 if (result == true) {
-                    res.send({ TheToken: userID,logged:true })
+                    res.send({ TheToken: userID, logged: true })
                 }
             })
         }
@@ -106,48 +106,66 @@ app.post('/Login', function (req, res) {
 app.post('/getuserInfo', function (req, res) {
     const { token } = req.body;
     User.findById(token, '-password').exec(function (err, result) {
-        if(err){
+        if (err) {
             console.log('error in getuserInfo')
         }
-        if(result == undefined){
+        if (result == undefined) {
             console.log('user not found')
         }
-        if(result){
-            const {username} = result
-            res.send({username})
+        if (result) {
+            const { username } = result
+            res.send({ username })
         }
-    });  
+    });
 });
 app.post('/getbusinessInfo', function (req, res) {
     const { idk } = req.body;
-//     Businesses.findById(id, function (err, result) {
-// console.log(result)
-     });
-
-
-
-   
-    app.get('/getBusinesses', function (req, res) {
-        Businesses.find({}, { clients: 0, date: 0 }, function (err, result) {
-           if(err){
-               console.log('error')
-           }
-            if (result){
-                res.send(result)
-           }
-        });
+    //     Businesses.findById(id, function (err, result) {
+    // console.log(result)
 });
+
+
+
+
+app.get('/getBusinesses', function (req, res) {
+    Businesses.find({}, { clients: 0, date: 0 }, function (err, result) {
+        if (err) {
+            console.log('error')
+        }
+        if (result) {
+            res.send(result)
+        }
+    });
+});
+
 app.post('/getOneBusinesses', function (req, res) {
-    const {service} = req.body
+    const { service } = req.body
     Businesses.findById(service, '-clients').exec(function (err, result) {
-            if (err) {
-                console.log('error')
-            }
-            if (result) {
-                res.send(result)
-            }
-       
-        });  
+        if (err) {
+            console.log('error')
+        }
+        if (result) {
+            res.send(result)
+        }
+
+    });
+});
+
+
+app.post('/registerAppointment', function (req, res) {
+    const { user, buisness, date, time, serviceList } = req.body.appointment
+    console.log(req.body.appointment)
+    Appointments.find({ $and: [{ buisnessesID: buisness }, { dateOfAppointment: date }, { timeOfAppointment: time }] }, function (err, result) {
+        if (result.length) {
+            console.log(result[0].buisnessesID)
+            console.log(result[0].dateOfAppointment)
+            console.log(result[0].timeOfAppointment)
+            const found = { buisnessesID, dateOfAppointment, timeOfAppointment} = result[0]
+            res.send({occupied:{buisnessesID, dateOfAppointment, timeOfAppointment}})
+        }
+        console.log(err)
+    });
+
 });
 
 
@@ -157,7 +175,7 @@ app.post('/getOneBusinesses', function (req, res) {
 
 // let newBusinesse = new Businesses({
 //     name: 'The barbers ',
-//     location: 'at barbers place',
+//     location: 'xxxxxxxxxx',
 //     clients: 'hashedPassword',
 // });
 // newBusinesse.save(function (err, newBusinesse) {
@@ -170,9 +188,11 @@ app.post('/getOneBusinesses', function (req, res) {
 
 
 // let newAppointment = new Appointments({
-//     usernameID: 'userID',
-//     buisnessesID: 'buisnessesID',
-//     dateOfAppointment: 'SELECTEDTIME',
+//     usernameID: '007',
+//     buisnessesID: '123456',
+//     dateOfAppointment: '2013',
+//     timeOfAppointment: '2013',
+//     services: 'ass wipe',
 // });
 // newAppointment.save(function (err, newAppointment) {
 //     if (err) return console.error(err);

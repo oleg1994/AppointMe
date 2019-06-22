@@ -15,6 +15,14 @@ const AppointmentsSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    timeOfAppointment: {
+        type: String,
+        required: true
+    },
+    services: {
+        type: String,
+        required: true
+    },
     date: {
         type: Date,
         default: Date.now

@@ -21,9 +21,7 @@ function Service({match}) {
     }, []);
 
 console.log(biz)
-function keyGenerator(){
-   return Math.floor((Math.random() * 1000) + 1) 
-}
+
  
 
 
@@ -36,15 +34,15 @@ function keyGenerator(){
                     {
                         biz.map((result, index) => {
                             return (
-                                <div className='Buisness' key={keyGenerator()}>
-                                    <img src='https://pbs.twimg.com/profile_images/2736392900/6cb90e48d2d7ab563fb5601df9d13cb8.jpeg' alt='' className='bizImage' key={keyGenerator()}></img>
-                                    <div className='bizInfo' key={keyGenerator()}>
-                                        <div className='bizTitle' key={keyGenerator()}>{result.name}</div>
-                                        <div className='bizMenu' key={keyGenerator()}>
-                                            <div className='serviceItem' key={keyGenerator()}>Google rating</div>
-                                            <div className='serviceItem' key={keyGenerator()}>{result.location}</div>
+                                <div className='Buisness' key={index}>
+                                    <img src='https://pbs.twimg.com/profile_images/2736392900/6cb90e48d2d7ab563fb5601df9d13cb8.jpeg' alt='' className='bizImage' ></img>
+                                    <div className='bizInfo' >
+                                        <div className='bizTitle'>{result.name}</div>
+                                        <div className='bizMenu'>
+                                            <div className='serviceItem'>Google rating</div>
+                                            <div className='serviceItem'>{result.location}</div>
                                             
-                                            <div className='serviceItem' key={keyGenerator()}><Link to={'/appointment'} ><div className='bookButton' key={keyGenerator()} onClick={e => localStorage.setItem('selectedService', result._id)}>BOOK APPOINTMENT</div></Link></div>
+                                            <div className='serviceItem' ><Link to={'/appointment'} ><div className='bookButton'  onClick={e => localStorage.setItem('selectedService', result._id)}>BOOK APPOINTMENT</div></Link></div>
                                         </div>
                                     </div>
                                 </div>

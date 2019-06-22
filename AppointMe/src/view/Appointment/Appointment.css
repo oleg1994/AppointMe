@@ -1,11 +1,11 @@
 .AppointmentWrapper {
-    height: 100%;
-    width: 100%;
+    height: 100vh;
+    width: 100vw;
 }
 
 .AppointImg {
-    margin-top: 20px;
     height: 20%;
+    width: 100%;
     border: 3px solid rgb(25, 76, 88);
 }
 
@@ -77,9 +77,3 @@
 .countinueButton:hover {
     background: rgb(204, 67, 17);
 }
-
-.jojo {
-    height: 100%;
-    width: 100%;
-}
-

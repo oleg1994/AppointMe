@@ -1,4 +1,4 @@
-import React, {} from 'react';
+import React, { } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 import Category from './Category/Category';
@@ -11,25 +11,26 @@ import Login from './Login/Login'
 import Dashboard from './Dashboard/Dashboard'
 import Appointment from './Appointment/Appointment';
 import { StateProvider } from '../Context/state';
+import Scheduling from './Scheduling/Scheduling';
 
 
 
 function App() {
-const appState = {
+  const appState = {
     loginCheck: { status: 'false' },
-};
+    servicePackage: [],
+  };
 
-const reducer = (state, action) => {
-  switch (action.type) {
+  const reducer = (state, action) => {
+    switch (action.type) {
       case 'changeLoginStatus':
-          return {
-              ...state,
-              loginCheck: action.payload
-          };
+        return { ...state, loginCheck: action.payload };
+      case 'addtoservicePackage':
+        return { ...state, servicePackage: action.payload };
       default:
-          return state;
-  }
-};
+        return state;
+    }
+  };
 
 
 
@@ -37,19 +38,20 @@ const reducer = (state, action) => {
 
   return (
     <StateProvider appState={appState} reducer={reducer}>
-    <Router>
-      <div className="main">
-        <Header/>
-        <Nav/>
-        <Route exact path='/' component={Category} />
-        <Route path='/placeholder' component={Sort} />
-        <Route path='/service/:id' component={Service} />
-        <Route path='/register' component={Register} />
-        <Route path='/login' component={Login}/>
-        <Route path='/dashboard' component={Dashboard} />
-        <Route path='/appointment' component={Appointment} />
-      </div>
-    </Router>
+      <Router>
+        <div className="main">
+          <Header />
+          <Nav />
+          <Route exact path='/' component={Category} />
+          <Route path='/placeholder' component={Sort} />
+          <Route path='/service/:id' component={Service} />
+          <Route path='/register' component={Register} />
+          <Route path='/login' component={Login} />
+          <Route path='/dashboard' component={Dashboard} />
+          <Route path='/appointment' component={Appointment} />
+          <Route path='/scheduling' component={Scheduling} />
+        </div>
+      </Router>
     </StateProvider>
   );
 }

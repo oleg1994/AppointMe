@@ -28,11 +28,11 @@
 }
 
 .regTitle {
-    text-decoration:underline grey;
+    text-decoration: underline grey;
     margin-top: 30px;
     margin-bottom: 30px;
     height: fit-content;
-    width: 100%;
+    width: 100vw;
     text-align: center;
     font-size: 20px;
     font-weight: 600
@@ -43,7 +43,6 @@
     color: white;
     height: fit-content;
     width: fit-content;
-    
 }
 
 .MatchErrorWrapper {
