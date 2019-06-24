@@ -11,6 +11,9 @@ const BusinessesSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    appointments: {
+        type: Array,
+    },
     date: {
         type: Date,
         default: Date.now

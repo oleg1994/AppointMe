@@ -118,12 +118,6 @@ app.post('/getuserInfo', function (req, res) {
         }
     });
 });
-app.post('/getbusinessInfo', function (req, res) {
-    const { idk } = req.body;
-    //     Businesses.findById(id, function (err, result) {
-    // console.log(result)
-});
-
 
 
 
@@ -151,32 +145,78 @@ app.post('/getOneBusinesses', function (req, res) {
     });
 });
 
-
+// Inserting into database new appointment from the client, and also inserts it into user collect and buisnesse collection
 app.post('/registerAppointment', function (req, res) {
     const { user, buisness, date, time, serviceList } = req.body.appointment
     console.log(req.body.appointment)
     Appointments.find({ $and: [{ buisnessesID: buisness }, { dateOfAppointment: date }, { timeOfAppointment: time }] }, function (err, result) {
-        if (result.length) {
-            console.log(result[0].buisnessesID)
-            console.log(result[0].dateOfAppointment)
-            console.log(result[0].timeOfAppointment)
-            const found = { buisnessesID, dateOfAppointment, timeOfAppointment} = result[0]
-            res.send({occupied:{buisnessesID, dateOfAppointment, timeOfAppointment}})
+        if (err) {
+            console.error(err)
         }
-        console.log(err)
+        if (result.length) {
+            console.log(result, 'that is result')
+            const { buisnessesID, dateOfAppointment, timeOfAppointment } = result[0]
+            res.send({ occupied: { buisnessesID, dateOfAppointment, timeOfAppointment } })
+        } else {
+            let newAppointment = new Appointments({
+                usernameID: user,
+                buisnessesID: buisness,
+                dateOfAppointment: date,
+                timeOfAppointment: time,
+                services: serviceList,
+            });
+            newAppointment.save(function (err, newAppointment) {
+                let biznessID = newAppointment.id
+                Businesses.findOneAndUpdate({ _id: buisness }, { $push: { appointments: newAppointment } }, function (error, success) {
+                    if (error) {
+                        console.log(error);
+                    } else {
+                        console.log(success);
+                    }
+                });
+                User.findOneAndUpdate({ _id: user }, { $push: { appointments: biznessID } }, function (error, success) {
+                    if (error) {
+                        console.log(error);
+                    } else {
+                        console.log(success);
+                        res.send({ "success": 'appointed' })
+                    }
+                });
+            });
+        }
     });
 
 });
 
 
+app.post('/appointmentInfo', function (req, res) {
+    const {token} = req.body
+    console.log(req.body)
+    User.findById(token, function (err, result) {
+        result.appointments.forEach(element => {
+            console.log(element)
+        });
+        // Appointments.find({
+        //     '_id': {
+        //         $in: [
+        //             mongoose.Types.ObjectId(result.appointments[0]),
+        //             mongoose.Types.ObjectId(result.appointments[1]),
+        //         ]
+        //     }
+        // }, function (err, docs) {
+        //     console.log(docs);
+        // });
+    })
+   
+});
 
 
 
 
 // let newBusinesse = new Businesses({
-//     name: 'The barbers ',
-//     location: 'xxxxxxxxxx',
-//     clients: 'hashedPassword',
+//     name: 'The XDDDD ',
+//     location: 'SSASSA',
+//     appointments: 'xd'
 // });
 // newBusinesse.save(function (err, newBusinesse) {
 //     if (err) return console.error(err);

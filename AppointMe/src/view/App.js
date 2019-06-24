@@ -20,7 +20,6 @@ function App() {
     loginCheck: { status: 'false' },
     servicePackage: [],
   };
-
   const reducer = (state, action) => {
     switch (action.type) {
       case 'changeLoginStatus':

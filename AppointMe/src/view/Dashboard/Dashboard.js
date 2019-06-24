@@ -9,16 +9,13 @@ function Dashboard(props) {
   const [username, setUsername] = useState('')
   const [token,] = useState(localStorage.getItem('logged-token'))
 
-
-  let userInfo = { token }
+  // let userInfo = { token }
 
   useEffect(() => {
-
-
     // fetches user basic info
     fetch('http://localhost:4000/getuserInfo', {
       method: 'POST',
-      body: JSON.stringify(userInfo),
+      body: JSON.stringify({ token}),
       headers: {
         'Content-Type': 'application/json'
       }
@@ -30,9 +27,9 @@ function Dashboard(props) {
 
       
       //fetches biz basic info
-    fetch('http://localhost:4000/getbusinessInfo', {
+    fetch('http://localhost:4000/appointmentInfo', {
       method: 'POST',
-      body: JSON.stringify(userInfo),
+      body: JSON.stringify({ token }),
       headers: {
         'Content-Type': 'application/json'
       }
@@ -43,12 +40,7 @@ function Dashboard(props) {
       })
       .catch(error => console.error('Error:', error));
 
-
-
-
-
-
-  });
+  }, [token]);
 
 
 

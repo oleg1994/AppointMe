@@ -17,8 +17,8 @@ function Scheduling(props) {
     const [servicename, setserviceName] = useState()
     const [serviceContext,] = useStateValue();
     const [serviceList, setserviceList] = useState(serviceContext.servicePackage.selected)
-
-
+    console.log(serviceContext)
+    // console.log(serviceList)
 
     useEffect(() => {
         setserviceList(localStorage.getItem('servicesMenu'))
@@ -75,7 +75,7 @@ function Scheduling(props) {
             let buisness = localStorage.getItem('selectedService')
             let appointment = { user, buisness, date, time, serviceList }
 
-            
+
             fetch('http://localhost:4000/registerAppointment', {
                 method: 'POST',
                 body: JSON.stringify({ appointment }),
@@ -84,13 +84,14 @@ function Scheduling(props) {
                 }
             }).then(res => res.json())
                 .then(response => {
-                    if (response.occupied){
+                    if (response.occupied) {
                         console.log('response.occupied')
+                    }
+                    if (response.success) {
+                        props.history.push('/dashboard')
                     }
                 })
                 .catch(error => console.error('Error:', error));
-        } else {
-            console.log('error')
         }
     }
 
