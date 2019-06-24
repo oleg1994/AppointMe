@@ -190,24 +190,61 @@ app.post('/registerAppointment', function (req, res) {
 
 
 app.post('/appointmentInfo', function (req, res) {
-    const {token} = req.body
+    const { token } = req.body
     console.log(req.body)
     User.findById(token, function (err, result) {
         result.appointments.forEach(element => {
             console.log(element)
         });
+        Appointments.find({
+            '_id': {
+                $in: [
+                mongoose.Types.ObjectId(result.appointments[0]),
+                mongoose.Types.ObjectId(result.appointments[1]),
+                mongoose.Types.ObjectId(result.appointments[2]),
+                mongoose.Types.ObjectId(result.appointments[3]),
+                mongoose.Types.ObjectId(result.appointments[4]),
+                mongoose.Types.ObjectId(result.appointments[5]),
+                mongoose.Types.ObjectId(result.appointments[6]),
+                mongoose.Types.ObjectId(result.appointments[7]),
+                mongoose.Types.ObjectId(result.appointments[8]),
+                mongoose.Types.ObjectId(result.appointments[9]),
+                mongoose.Types.ObjectId(result.appointments[10])
+                ]
+            }
+            
+        },{ usernameID: 0, date: 0}, function (err, docs) {
+            console.log(docs);
+            res.send(docs)
+        });
+    })
+
+});
+
+//get the fucking name and image of biznessessesesesses
+app.post('/dashboardGetBizIDs', function (req, res) {
+    console.log(req.body.arr)
         // Appointments.find({
         //     '_id': {
         //         $in: [
-        //             mongoose.Types.ObjectId(result.appointments[0]),
-        //             mongoose.Types.ObjectId(result.appointments[1]),
+        //         mongoose.Types.ObjectId(result.appointments[0]),
+        //         mongoose.Types.ObjectId(result.appointments[1]),
+        //         mongoose.Types.ObjectId(result.appointments[2]),
+        //         mongoose.Types.ObjectId(result.appointments[3]),
+        //         mongoose.Types.ObjectId(result.appointments[4]),
+        //         mongoose.Types.ObjectId(result.appointments[5]),
+        //         mongoose.Types.ObjectId(result.appointments[6]),
+        //         mongoose.Types.ObjectId(result.appointments[7]),
+        //         mongoose.Types.ObjectId(result.appointments[8]),
+        //         mongoose.Types.ObjectId(result.appointments[9]),
+        //         mongoose.Types.ObjectId(result.appointments[10])
         //         ]
         //     }
-        // }, function (err, docs) {
+            
+        // },{ usernameID: 0, date: 0}, function (err, docs) {
         //     console.log(docs);
+        //     res.send(docs)
         // });
-    })
-   
 });
 
 
