@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './Service.css';
 import Search from '../Search/Search'
-import Sort from '../Sort/Sort';
 import { Link } from 'react-router-dom';
 
 
@@ -30,7 +29,6 @@ console.log(biz)
             return (
                 <div className='serviceWrapper'>
                     <Search />
-                    <Sort />
                     {
                         biz.map((result, index) => {
                             return (
@@ -57,7 +55,6 @@ console.log(biz)
             return (
                 <div className='serviceWrapper'>
                 <Search />
-                <Sort />
                 <div className='Buisness'>
                     <img src='https://pbs.twimg.com/profile_images/2736392900/6cb90e48d2d7ab563fb5601df9d13cb8.jpeg' alt='' className='bizImage'></img>
                     <div className='bizInfo'>

@@ -2,8 +2,9 @@
     box-sizing: border-box;
     display: flex;
     justify-content: center;
-    height: 10vh;
+    height: 10%;
     width: 100vw;
+    margin-top:8px;
 }
 
 .searchInput {

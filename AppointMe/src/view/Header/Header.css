@@ -2,7 +2,7 @@
   font-family: 'Montserrat', sans-serif;
   font-weight: bolder;
   height: 5vh;
-  width: 100vw;
+  width: 100%;
   background: skyblue;
   display: flex;
   justify-content: space-evenly;

@@ -24,8 +24,8 @@ function Header(props) {
   if (localStorage.getItem('logged-token')){
     return (
       <div className='header'>
-        <Link to={'/dashboard'} className='headerBlock'>Dashboard</Link>
-        <Link to={`/`} className='headerBlock' onClick={logOut}>Log out</Link>
+        <Link to={'/dashboard'} className='headerBlock'>Dashboard&nbsp;<i className="far fa-address-card"></i></Link>
+        <Link to={`/`} className='headerBlock' onClick={logOut}>Log out&nbsp;<i className="fas fa-sign-out-alt"></i></Link>
       </div>
       
 
@@ -33,8 +33,8 @@ function Header(props) {
   }
   return (
       <div className='header'>
-        <Link to={'/register'} className='headerBlock' >Register</Link>
-        <Link to={`/login`} className='headerBlock'>Sign in!</Link>
+      <Link to={'/register'} className='headerBlock' >Register&nbsp;<i className="fas fa-user-plus"></i></Link>
+      <Link to={`/login`} className='headerBlock'>Sign in&nbsp; <i className="fas fa-sign-in-alt"></i> </Link>
       </div>
   );
 }
