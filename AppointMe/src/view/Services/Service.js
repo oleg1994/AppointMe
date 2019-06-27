@@ -13,13 +13,11 @@ function Service({match}) {
         fetch('http://localhost:4000/getBusinesses', {
         }).then(res => res.json())
             .then(response => {
-                // console.log(response)
                 setbiz(response)
             })
             .catch(error => console.error('Error:', error));
     }, []);
 
-console.log(biz)
 
  
 

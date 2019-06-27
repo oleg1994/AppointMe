@@ -25,7 +25,6 @@ function Appointment(props) {
     }).then(res => res.json())
       .then(response => {
         setserviceName(response.name)
-        console.log(response)
       })
       .catch(error => console.error('Error:', error));
   }, []);

@@ -205,14 +205,14 @@ app.post('/appointmentInfo', function (req, res) {
 });
 
 
-// let newBusinesse = new Businesses({
-//     name: 'The XDDDD ',
-//     location: 'SSASSA',
-//     appointments: 'xd'
-// });
-// newBusinesse.save(function (err, newBusinesse) {
-//     if (err) return console.error(err);
-// });
+let newBusinesse = new Businesses({
+    name: 'The barber ',
+    location: 'barberz street',
+    appointments: 'xd'
+});
+newBusinesse.save(function (err, newBusinesse) {
+    if (err) return console.error(err);
+});
 
 
 

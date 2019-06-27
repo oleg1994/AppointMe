@@ -18,7 +18,6 @@ function Scheduling(props) {
     const [serviceContext,] = useStateValue();
     const [serviceList, setserviceList] = useState(serviceContext.servicePackage.selected)
     console.log(serviceContext)
-    // console.log(serviceList)
 
     useEffect(() => {
         setserviceList(localStorage.getItem('servicesMenu'))
@@ -85,7 +84,7 @@ function Scheduling(props) {
             }).then(res => res.json())
                 .then(response => {
                     if (response.occupied) {
-                        console.log('response.occupied')
+                        console.log(response)
                     }
                     if (response.success) {
                         props.history.push('/dashboard')
@@ -162,6 +161,10 @@ function Scheduling(props) {
                 maxDate={LimitDays(new Date(), 10)}
                 minTime={new Date(new Date().setHours(8, 0, 0))}
                 maxTime={new Date(new Date().setHours(20, 0, 0))}
+                // excludeTimes={[new Date(new Date().setHours(19, 45, 0))]}
+                // excludeTimes={[setHours(setMinutes(new Date(), 0), 17)]}
+
+
             />
             <div className='reviewWrapper'>
                 <div className='AppointName'>Review Appointment details:</div>
