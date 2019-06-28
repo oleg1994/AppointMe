@@ -200,19 +200,37 @@ app.post('/appointmentInfo', function (req, res) {
         Businesses.find({ "appointments.usernameID": token }, function (err, result) {
             res.send(result)
         })
+    });
+
+});
+app.post('/getAllBusinessesAppointments', function (req, res) {
+    const { service } = req.body
+    Businesses.findById(service, function (err, result) {
+        if (err) {
+            console.error(err)
+        }
+        const dateNtime = []
+        const combineTimes = result.appointments.map((jojo, index) => {
+            return dateNtime.push({ time: `${jojo.timeOfAppointment}`, date:`${jojo.dateOfAppointment}`})
+        })
+
+        Promise.all(combineTimes).then(() => {
+            // console.log(dateNtime)
+            res.send(dateNtime)
         });
-   
+    });
+
 });
 
 
-let newBusinesse = new Businesses({
-    name: 'The barber ',
-    location: 'barberz street',
-    appointments: 'xd'
-});
-newBusinesse.save(function (err, newBusinesse) {
-    if (err) return console.error(err);
-});
+// let newBusinesse = new Businesses({
+//     name: 'The barber ',
+//     location: 'barberz street',
+//     appointments: 'xd'
+// });
+// newBusinesse.save(function (err, newBusinesse) {
+//     if (err) return console.error(err);
+// });
 
 
 

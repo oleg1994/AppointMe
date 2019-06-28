@@ -17,25 +17,27 @@ function Scheduling(props) {
     const [servicename, setserviceName] = useState()
     const [serviceContext,] = useStateValue();
     const [serviceList, setserviceList] = useState(serviceContext.servicePackage.selected)
-    console.log(serviceContext)
+    const [excluded, setexcluded] = useState([])
+    const [hour, sethour] = useState([])
+    const [minute, setminute] = useState([])
+
+
 
     useEffect(() => {
         setserviceList(localStorage.getItem('servicesMenu'))
-    }, [serviceContext]);
+    }, []);
 
 
 
     function selectedDate(date) {
         setstartDate(date)
         setDate(date.toDateString())
-        console.log(date)
         const datelocal = date.toLocaleTimeString('en-GB', {
             hour: '2-digit',
             minute: '2-digit',
             second: '2-digit'
         });
         setTime(datelocal.slice(0, -3))
-
 
         setserviceList(localStorage.getItem('servicesMenu'))
     }
@@ -63,17 +65,18 @@ function Scheduling(props) {
         }).then(res => res.json())
             .then(response => {
                 setserviceName(response.name)
-                console.log(response)
+                // console.log(response)
             })
             .catch(error => console.error('Error:', error));
     }, []);
+
+
 
     function RegisterAppointment() {
         if (date !== 'Select date' && time !== 'Select time') {
             let user = localStorage.getItem('logged-token')
             let buisness = localStorage.getItem('selectedService')
             let appointment = { user, buisness, date, time, serviceList }
-
 
             fetch('http://localhost:4000/registerAppointment', {
                 method: 'POST',
@@ -84,7 +87,7 @@ function Scheduling(props) {
             }).then(res => res.json())
                 .then(response => {
                     if (response.occupied) {
-                        console.log(response)
+                        console.log(response.occupied.dateOfAppointment)
                     }
                     if (response.success) {
                         props.history.push('/dashboard')
@@ -96,56 +99,49 @@ function Scheduling(props) {
 
 
 
+    useEffect(() => {
+        let service = localStorage.getItem('selectedService')
+        fetch('http://localhost:4000/getAllBusinessesAppointments', {
+            method: 'POST',
+            body: JSON.stringify({ service }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then(res => res.json())
+            .then(response => {
+                // console.log(response)
+                setexcluded(response)
+                // response.forEach(element => {
+                //     if (date === element.date) {
+
+                //         setexcluded(element.time.slice(0, -3),element.time.slice(3))
+
+                //     }
+                // });
+
+            })
+            .catch(error => console.error('Error:', error));
+    }, []);
 
 
 
+    useEffect(() => {
+        excluded.forEach(element => {
+            // console.log(element.time)
+            sethour(element.time.slice(0, -3))
+            setminute(element.time.slice(3))
+           
+        });
 
+    }, [excluded])
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+console.log(minute)
 
     return (
         <div className='CalendarWrapper'>
             <div className='AppointName'>Select the day of appointment</div>
+
+
             <DatePicker
                 selected={startDate}
                 onChange={selectedDate}
@@ -161,12 +157,12 @@ function Scheduling(props) {
                 maxDate={LimitDays(new Date(), 10)}
                 minTime={new Date(new Date().setHours(8, 0, 0))}
                 maxTime={new Date(new Date().setHours(20, 0, 0))}
-                // excludeTimes={[new Date(new Date().setHours(19, 45, 0))]}
-                // excludeTimes={[setHours(setMinutes(new Date(), 0), 17)]}
+                excludeTimes={[new Date(new Date().setHours(hour, minute, 0)), new Date(new Date().setHours(hour, minute, 0))]}
+
 
 
             />
-            <div className='reviewWrapper'>
+            < div className='reviewWrapper' >
                 <div className='AppointName'>Review Appointment details:</div>
                 <div className='reviewItem'>
                     <div className='topWrapper'>

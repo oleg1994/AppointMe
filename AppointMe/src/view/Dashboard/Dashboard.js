@@ -55,25 +55,27 @@ function Dashboard(props) {
       <div className='AppointTitle'>My appointments:</div>
       {
         appointments.map((result, index) => {
-      return (
-            <div key={index}>
-              <div className='AppointmentList'>
-                <div className='appointItem'>
-                  <div className='topWrapper'>
-                <div className='placeName'>{appointments[index].name}</div>
-                    <div className='editAppoint'><i className="fas fa-ellipsis-h"></i></div>
-                  </div>
-                  <div className='middleWrapper'>
-                    <img className='placePhoto' src='https://pbs.twimg.com/profile_images/2736392900/6cb90e48d2d7ab563fb5601df9d13cb8.jpeg' alt="placePhoto" />
-                <div className='placeLoc'>Address:&nbsp;{appointments[index].location},
-                    <div className='servicePos'>Service:&nbsp;{appointments[index].appointments[0].services}</div>
-                    <div className='appointTime'>{appointments[index].appointments[0].dateOfAppointment},{appointments[index].appointments[0].timeOfAppointment}</div>
+          return appointments[index].appointments.map((second, index) => {
+            return (
+              <div key={index}>
+                <div className='AppointmentList'>
+                  <div className='appointItem'>
+                    <div className='topWrapper'>
+                      <div className='placeName'>{result.name}</div>
+                      <div className='editAppoint'><i className="fas fa-ellipsis-h"></i></div>
+                    </div>
+                    <div className='middleWrapper'>
+                      <img className='placePhoto' src='https://pbs.twimg.com/profile_images/2736392900/6cb90e48d2d7ab563fb5601df9d13cb8.jpeg' alt="placePhoto" />
+                      <div className='placeLoc'>Address:&nbsp;{result.location},
+                    <div className='servicePos'>Service:&nbsp;{second.services}</div>
+                        <div className='appointTime'>{second.dateOfAppointment},{second.timeOfAppointment}</div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          )
+            )
+          })
         })
       }
     </div>
