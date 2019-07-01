@@ -210,8 +210,8 @@ app.post('/getAllBusinessesAppointments', function (req, res) {
             console.error(err)
         }
         const dateNtime = []
-        const combineTimes = result.appointments.map((jojo, index) => {
-            return dateNtime.push({ time: `${jojo.timeOfAppointment}`, date:`${jojo.dateOfAppointment}`})
+        const combineTimes = result.appointments.map((finds, index) => {
+            return dateNtime.push({ time: `${finds.timeOfAppointment}`, date:`${finds.dateOfAppointment}`})
         })
 
         Promise.all(combineTimes).then(() => {
@@ -223,30 +223,30 @@ app.post('/getAllBusinessesAppointments', function (req, res) {
 });
 
 
-// let newBusinesse = new Businesses({
-//     name: 'The barber ',
-//     location: 'barberz street',
-//     appointments: 'xd'
-// });
-// newBusinesse.save(function (err, newBusinesse) {
-//     if (err) return console.error(err);
-// });
+let newBusinesse = new Businesses({
+    name: 'The barbershop ',
+    location: 'barberz place',
+    appointments: 'one'
+});
+newBusinesse.save(function (err, newBusinesse) {
+    if (err) return console.error(err);
+});
 
 
 
 
 
 
-// let newAppointment = new Appointments({
-//     usernameID: '007',
-//     buisnessesID: '123456',
-//     dateOfAppointment: '2013',
-//     timeOfAppointment: '2013',
-//     services: 'ass wipe',
-// });
-// newAppointment.save(function (err, newAppointment) {
-//     if (err) return console.error(err);
-// });
+let newAppointment = new Appointments({
+    usernameID: '007',
+    buisnessesID: '123456',
+    dateOfAppointment: '2013',
+    timeOfAppointment: '2013',
+    services: 'hair cutting',
+});
+newAppointment.save(function (err, newAppointment) {
+    if (err) return console.error(err);
+});
 
 
 
