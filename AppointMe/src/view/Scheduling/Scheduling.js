@@ -3,7 +3,6 @@ import DatePicker from "react-datepicker";
 import './../Scheduling/Scheduling.css'
 import "react-datepicker/dist/react-datepicker.css";
 import { useStateValue } from '../../Context/state';
-import TimeSelector from '../TimeSelector/TimeSelector';
 
 
 
@@ -22,7 +21,6 @@ function Scheduling(props) {
     const [hour, sethour] = useState([])
     const [minute, setminute] = useState([])
     let tempHours = []
-    const [checkTimeSpace, setcheckTimeSpace] = useState(false)
 
 
 
