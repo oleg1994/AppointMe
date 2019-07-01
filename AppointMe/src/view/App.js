@@ -12,6 +12,7 @@ import Dashboard from './Dashboard/Dashboard'
 import Appointment from './Appointment/Appointment';
 import { StateProvider } from '../Context/state';
 import Scheduling from './Scheduling/Scheduling';
+import TimeSelector from './TimeSelector/TimeSelector';
 
 
 
@@ -49,6 +50,7 @@ function App() {
           <Route path='/dashboard' component={Dashboard} />
           <Route path='/appointment' component={Appointment} />
           <Route path='/scheduling' component={Scheduling} />
+          <Route path='/TimeSelector' component={TimeSelector} />
         </div>
       </Router>
     </StateProvider>

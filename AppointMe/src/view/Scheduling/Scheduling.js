@@ -3,6 +3,7 @@ import DatePicker from "react-datepicker";
 import './../Scheduling/Scheduling.css'
 import "react-datepicker/dist/react-datepicker.css";
 import { useStateValue } from '../../Context/state';
+import TimeSelector from '../TimeSelector/TimeSelector';
 
 
 
@@ -20,6 +21,8 @@ function Scheduling(props) {
     const [excluded, setexcluded] = useState([])
     const [hour, sethour] = useState([])
     const [minute, setminute] = useState([])
+    let tempHours = []
+    const [checkTimeSpace, setcheckTimeSpace] = useState(false)
 
 
 
@@ -111,57 +114,55 @@ function Scheduling(props) {
             .then(response => {
                 // console.log(response)
                 setexcluded(response)
-                // response.forEach(element => {
-                //     if (date === element.date) {
+                console.log(response)
+                response.forEach(element => {
+                    console.log(element.date)
+                    console.log(date)
+                    if (date === element.date) {
+                        console.log(element.date)
 
-                //         setexcluded(element.time.slice(0, -3),element.time.slice(3))
 
-                //     }
-                // });
+                    }
+                });
+
 
             })
             .catch(error => console.error('Error:', error));
-    }, []);
+    }, [date]);
 
 
+    excluded.map((newT, index) => {
+        return (
+            tempHours.push(parseInt(newT.time.slice(0, -3)))
+        )
+    });
 
-    useEffect(() => {
-        excluded.forEach(element => {
-            // console.log(element.time)
-            sethour(element.time.slice(0, -3))
-            setminute(element.time.slice(3))
-           
-        });
 
-    }, [excluded])
+    console.log(tempHours)
 
-console.log(minute)
 
     return (
         <div className='CalendarWrapper'>
             <div className='AppointName'>Select the day of appointment</div>
-
-
-            <DatePicker
-                selected={startDate}
-                onChange={selectedDate}
-                shouldCloseOnSelect={false}
-                filterDate={isWeekend}
-                inline
-                showTimeSelect
-                timeFormat="HH:mm"
-                timeIntervals={15}
-                dateFormat="MMMM d, yyyy h:mm aa"
-                timeCaption="time"
-                minDate={new Date()}
-                maxDate={LimitDays(new Date(), 10)}
-                minTime={new Date(new Date().setHours(8, 0, 0))}
-                maxTime={new Date(new Date().setHours(20, 0, 0))}
-                excludeTimes={[new Date(new Date().setHours(hour, minute, 0)), new Date(new Date().setHours(hour, minute, 0))]}
-
-
-
-            />
+            <div className='timeandDate' >
+                <DatePicker
+                    selected={startDate}
+                    onChange={selectedDate}
+                    shouldCloseOnSelect={false}
+                    filterDate={isWeekend}
+                    inline
+                    showTimeSelect
+                    dateFormat="MMMM d, yyyy h:mm aa"
+                    minDate={new Date()}
+                    maxDate={LimitDays(new Date(), 10)}
+                    minTime={new Date(new Date().setHours(8, 0, 0))}
+                    maxTime={new Date(new Date().setHours(20, 0, 0))}
+                    timeFormat="HH:mm"
+                    excludeTimes={
+                        tempHours.map((hourz, index) => { return new Date(new Date().setHours(hourz, 0, 0)); })
+                    }
+                />
+            </div>
             < div className='reviewWrapper' >
                 <div className='AppointName'>Review Appointment details:</div>
                 <div className='reviewItem'>
