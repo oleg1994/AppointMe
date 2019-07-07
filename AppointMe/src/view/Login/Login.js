@@ -12,6 +12,7 @@ function Login(props) {
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
   const [InvalidUser, setInvalidUser] = useState("");
+  const [visibility, setVisibility] = useState({ display: 'none' });
   const [, dispatchloginCheck] = useStateValue();
 
 
@@ -31,6 +32,7 @@ function Login(props) {
         console.log(response)
         if(response.logged === false){
           setInvalidUser('username or password is incorrect')
+          setVisibility({ display: 'block' })
         }
         if (response.logged === true){
           localStorage.setItem('logged-token', response.TheToken)
@@ -52,7 +54,7 @@ function Login(props) {
   return (
     <form className='registerWrapper' onSubmit={loginFetch}>
       <div className='regTitle'>Login</div>
-      <div className='inputPos'><div className='InvalidUser'>{InvalidUser}</div></div>
+      <div className='inputPos' style={visibility}><div className='InvalidUser'>{InvalidUser}</div></div>
       <div className='inputPos'>Username<input className='inputSelf' type='text' required value={user} onChange={e => setUser(e.target.value)} ></input></div>
       <div className='inputPos'>Password<input className='inputSelf' type='password' required value={password} onChange={e => setPassword(e.target.value)} ></input></div>
       <div className='inputPos'><input className='inputSelf' type='submit' value='Login' required></input></div>

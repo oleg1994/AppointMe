@@ -8,7 +8,7 @@ function Nav() {
     return (
       <div className='navBar'>
           <Link to={`/`} className='logo'>Home</Link>
-          <Link to={`/`} className='logo'>About</Link>
+          <Link to={`/about`} className='logo'>About</Link>
         
         </div>
     );

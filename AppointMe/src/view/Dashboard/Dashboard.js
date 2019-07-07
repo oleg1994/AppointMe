@@ -52,7 +52,7 @@ function Dashboard(props) {
         <img className='userPhoto' src={userPhoto} alt="userPhoto" />
         <div className='userName'>Hello,&nbsp;{username}</div>
       </div>
-      <div className='AppointTitle'>My appointments:</div>
+      <div className='dashboardNav'><div className='AppointTitle'>My appointments</div><div className='AppointTitle'>My business</div></div>
       {
         appointments.map((result, index) => {
           return appointments[index].appointments.map((second, index) => {

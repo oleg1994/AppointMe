@@ -4,7 +4,7 @@ import './../Register/Register.css'
 
 
 
-function Register() {
+function Register(props) {
 
   const [user, setUser] = useState("");
   const [email, setEmail] = useState("");
@@ -27,7 +27,13 @@ function Register() {
         }
       }).then(res => res.json())
         .then(response => {
-          console.log(JSON.stringify(response))
+          console.log(response.check)
+          if(response.success){
+            props.history.push('/')
+          }
+          if (response.check){
+            alert('user or email is already in datebase')
+          }
         })
         .catch(error => console.error('Error:', error));
       

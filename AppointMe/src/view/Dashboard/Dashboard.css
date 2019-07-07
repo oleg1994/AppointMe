@@ -3,6 +3,12 @@
     width: 100%;
 }
 
+.dashboardNav {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
 .dashboardTitle {
     color: transparent;
     -webkit-background-clip: text;
@@ -15,6 +21,7 @@
     text-align: center;
     font-size: 23px;
     font-weight: 600;
+    width: fit-content;
 }
 
 .nameNphoto {
@@ -52,6 +59,12 @@
     height: fit-content;
     font-size: 20px;
     font-weight: 600;
+    width: fit-content;
+    padding: 6px;
+    border: 2px rgb(14, 159, 226) solid;
+    border-radius: 10%;
+    display: flex;
+    vertical-align: text-top;
 }
 
 .AppointmentList {
@@ -77,8 +90,6 @@
     box-shadow: 5px 5px 15px 9px rgba(158, 158, 158, 0.23);
     border: 2px solid rgb(197, 188, 188);
 }
-
-
 
 .topWrapper {
     display: flex;

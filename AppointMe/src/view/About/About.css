@@ -1,0 +1,15 @@
+.AboutWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 90%;
+    margin: auto;
+}
+
+.aboutLogo {
+    margin: 25px auto auto auto;
+}
+
+.aboutText {
+    margin-top: 10px;
+}

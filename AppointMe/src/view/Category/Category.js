@@ -25,7 +25,7 @@ function Category(props) {
             Nail Salon's
           </div>
           <div className='item'>
-            <Link to={`/placeholder`} >
+            <Link to={`/`} >
               <img src={nail} alt="Logo" className='categoryImg' />
             </Link>
             Tanning Salon's
@@ -34,19 +34,19 @@ function Category(props) {
         </div>
         <div className='rowTwo'>
           <div className='item'>
-            <Link to={`/placeholder`} >
+            <Link to={`/`} >
               <img src={nail} alt="Logo" className='categoryImg' />
             </Link>
             Massages
           </div>
           <div className='item'>
-            <Link to={`/placeholder`} >
+            <Link to={`/`} >
               <img src={nail} alt="Logo" className='categoryImg' />
             </Link>
             Hair removal
           </div>
           <div className='item'>
-            <Link to={`/placeholder`} >
+            <Link to={`/`} >
               <img src={nail} alt="Logo" className='categoryImg' />
             </Link>
             Skin care

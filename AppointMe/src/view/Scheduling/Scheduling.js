@@ -18,14 +18,13 @@ function Scheduling(props) {
     const [serviceContext,] = useStateValue();
     const [serviceList, setserviceList] = useState(serviceContext.servicePackage.selected)
     const [excluded, setexcluded] = useState([])
-    const [hour, sethour] = useState([])
-    const [minute, setminute] = useState([])
-    let tempHours = []
+
 
 
 
     useEffect(() => {
         setserviceList(localStorage.getItem('servicesMenu'))
+
     }, []);
 
 
@@ -39,7 +38,6 @@ function Scheduling(props) {
             second: '2-digit'
         });
         setTime(datelocal.slice(0, -3))
-
         setserviceList(localStorage.getItem('servicesMenu'))
     }
 
@@ -66,7 +64,6 @@ function Scheduling(props) {
         }).then(res => res.json())
             .then(response => {
                 setserviceName(response.name)
-                // console.log(response)
             })
             .catch(error => console.error('Error:', error));
     }, []);
@@ -101,6 +98,7 @@ function Scheduling(props) {
 
 
     useEffect(() => {
+        let tempData = []
         let service = localStorage.getItem('selectedService')
         fetch('http://localhost:4000/getAllBusinessesAppointments', {
             method: 'POST',
@@ -110,33 +108,21 @@ function Scheduling(props) {
             }
         }).then(res => res.json())
             .then(response => {
-                // console.log(response)
-                setexcluded(response)
-                console.log(response)
                 response.forEach(element => {
-                    console.log(element.date)
-                    console.log(date)
                     if (date === element.date) {
-                        console.log(element.date)
-
-
+                        tempData.push(element)
+                        tempData.map((result, index) => (
+                            tempData.push(result)
+                        ))
                     }
+                    setexcluded([])
+                    setexcluded(tempData)
                 });
 
 
             })
             .catch(error => console.error('Error:', error));
     }, [date]);
-
-
-    excluded.map((newT, index) => {
-        return (
-            tempHours.push(parseInt(newT.time.slice(0, -3)))
-        )
-    });
-
-
-    console.log(tempHours)
 
 
     return (
@@ -157,7 +143,7 @@ function Scheduling(props) {
                     maxTime={new Date(new Date().setHours(20, 0, 0))}
                     timeFormat="HH:mm"
                     excludeTimes={
-                        tempHours.map((hourz, index) => { return new Date(new Date().setHours(hourz, 0, 0)); })
+                        excluded.map((exclude, index) => { return new Date(new Date().setHours(parseInt(exclude.time.slice(0, -3)), exclude.time.slice(3), 0)); })
                     }
                 />
             </div>
