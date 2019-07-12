@@ -27,7 +27,6 @@ function Register(props) {
         }
       }).then(res => res.json())
         .then(response => {
-          console.log(response.check)
           if(response.success){
             props.history.push('/')
           }

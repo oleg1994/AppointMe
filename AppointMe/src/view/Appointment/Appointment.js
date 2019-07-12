@@ -102,7 +102,7 @@ function Appointment(props) {
           <div className='MatchError'>{atleastOne}</div>
         </div>
         <div className='ServiceSelection'>
-          <div onClick={CountinueButton} className='countinueButton'>Countinue</div>
+          <div onClick={CountinueButton} className='OrangeButton'>COUNTINUE</div>
         </div>
         <div className='serviceLocation'>
           LOCATION

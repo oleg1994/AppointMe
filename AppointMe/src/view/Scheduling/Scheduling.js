@@ -161,7 +161,7 @@ function Scheduling(props) {
                         </div>
                     </div>
                 </div>
-                <div className='approveButton' onClick={RegisterAppointment}>Approve</div>
+                <div className='OrangeButton' onClick={RegisterAppointment}>APPROVE APPOINTMENT</div>
             </div>
         </div>
     );

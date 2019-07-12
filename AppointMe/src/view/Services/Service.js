@@ -38,7 +38,7 @@ function Service({match}) {
                                             <div className='serviceItem'>Google rating</div>
                                             <div className='serviceItem'>{result.location}</div>
                                             
-                                            <div className='serviceItem' ><Link to={'/appointment'} ><div className='bookButton'  onClick={e => localStorage.setItem('selectedService', result._id)}>BOOK APPOINTMENT</div></Link></div>
+                                            <div className='serviceItem' ><Link to={'/appointment'} ><div className='OrangeButton'  onClick={e => localStorage.setItem('selectedService', result._id)}>BOOK APPOINTMENT</div></Link></div>
                                         </div>
                                     </div>
                                 </div>

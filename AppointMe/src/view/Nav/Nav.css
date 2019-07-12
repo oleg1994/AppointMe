@@ -11,14 +11,11 @@
   align-items: center;
 }
 
-.logo {
+.NavTitle {
   color: #404041;
   height: fit-content;
   font-size: 30px;
 }
-
-.material-icons {
-  height: fit-content;
-  color: #404041;
-  font-size: 40px;
+.NavTitle:hover {
+  text-decoration: underline;
 }

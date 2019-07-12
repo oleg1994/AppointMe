@@ -19,14 +19,13 @@ const Appointments = require('./models/Appointment')
 // App ~uses~
 app.use(cors());
 app.use(express.json());
+mongoose.set('useFindAndModify', false);
 
 
 
-
-
-
-// Database connection
-mongoose.connect('mongodb://localhost/DATABASE', { useNewUrlParser: true });
+mongoose.connect('mongodb+srv://oleg:oleg123@appointme-kgc1l.mongodb.net/test?retryWrites=true&w=majority', {
+    useNewUrlParser: true
+});
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -223,30 +222,30 @@ app.post('/getAllBusinessesAppointments', function (req, res) {
 });
 
 
-let newBusinesse = new Businesses({
-    name: 'The barbershop ',
-    location: 'barberz place',
-    appointments: 'one'
-});
-newBusinesse.save(function (err, newBusinesse) {
-    if (err) return console.error(err);
-});
+// let newBusinesse = new Businesses({
+//     name: 'The barbershop ',
+//     location: 'barberz place',
+//     appointments: 'one'
+// });
+// newBusinesse.save(function (err, newBusinesse) {
+//     if (err) return console.error(err);
+// });
 
 
 
 
 
 
-let newAppointment = new Appointments({
-    usernameID: '007',
-    buisnessesID: '123456',
-    dateOfAppointment: '2013',
-    timeOfAppointment: '2013',
-    services: 'hair cutting',
-});
-newAppointment.save(function (err, newAppointment) {
-    if (err) return console.error(err);
-});
+// let newAppointment = new Appointments({
+//     usernameID: '007',
+//     buisnessesID: '123456',
+//     dateOfAppointment: '2013',
+//     timeOfAppointment: '2013',
+//     services: 'hair cutting',
+// });
+// newAppointment.save(function (err, newAppointment) {
+//     if (err) return console.error(err);
+// });
 
 
 
