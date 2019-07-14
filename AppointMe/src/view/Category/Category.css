@@ -20,6 +20,7 @@
   color: #404041;
 }
 
+
 .Title {
   font-family: 'Montserrat', sans-serif;
   display: flex;
@@ -46,4 +47,12 @@
   background: skyblue;
   height: 100px;
   width: 100px;
+  -moz-box-shadow:    inset 0 0 10px #3b3737;
+  -webkit-box-shadow: inset 0 0 10px #3b3737;
+  box-shadow:         inset 0 0 10px #3b3737;
+}
+.categoryImg:hover {
+  border-radius: 10%;
+  border:#404041 solid 2px;
+  padding:8px;
 }

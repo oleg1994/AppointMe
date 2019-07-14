@@ -36,7 +36,7 @@ function Dashboard(props) {
       return <UserAppointments />
     }
     if (renderState === 'business') {
-      return <UserBusiness />
+      return <UserBusiness /> 
     }
   }
 

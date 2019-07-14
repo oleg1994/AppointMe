@@ -2,3 +2,24 @@ a {
     text-decoration: none;
     cursor: pointer;
 }
+.OrangeButton{
+    margin-top: 8px;
+    margin-bottom: 8px;
+    height: fit-content;
+    max-height: 50px;
+    font-size: 20px;
+    font-weight: 600;
+    width: fit-content;
+    padding: 6px;
+    border: 3px skyblue solid;
+    border-radius: 9.5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    background: rgba(255, 84, 4, 0.699);
+    color:white;
+    margin: 0 auto;
+}

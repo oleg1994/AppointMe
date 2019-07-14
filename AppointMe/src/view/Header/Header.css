@@ -13,13 +13,17 @@
 .headerBlock {
   border-right: 1px solid gray;
   border-left: 1px solid gray;
-  height: fit-content;
+  height: 100%;
   width: 100%;
   color: white;
   background: skyblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 }
 
 .headerBlock:hover {
-  background: rgb(90, 180, 216);
-  padding: 8px;
+background: rgb(0, 183, 255);
+  
 }

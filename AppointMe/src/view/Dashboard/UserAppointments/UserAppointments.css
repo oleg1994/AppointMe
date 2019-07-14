@@ -16,7 +16,6 @@
     background: rgba(236, 233, 230, 0.493);
     background: -webkit-linear-gradient(to right, rgba(255, 255, 255, 0.418), rgba(236, 233, 230, 0.411));
     background: linear-gradient(to right, rgba(255, 255, 255, 0.342), rgba(236, 233, 230, 0.377));
-    border: 2px solid #EFEFEF;
     -webkit-box-shadow: 5px 5px 15px 9px rgba(158, 158, 158, 0.23);
     box-shadow: 5px 5px 15px 9px rgba(158, 158, 158, 0.23);
     border: 2px solid rgb(197, 188, 188);
