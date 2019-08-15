@@ -26,7 +26,7 @@ function Service({match}) {
         case url = 'hair-salons': 
             return (
                 <div className='serviceWrapper'>
-                    <Search />
+                    {/* <Search /> */}
                     {
                         biz.map((result, index) => {
                             return (
@@ -52,7 +52,7 @@ function Service({match}) {
         case url = 'nail-salons':
             return (
                 <div className='serviceWrapper'>
-                <Search />
+                {/* <Search /> */}
                 <div className='Buisness'>
                     <img src='https://pbs.twimg.com/profile_images/2736392900/6cb90e48d2d7ab563fb5601df9d13cb8.jpeg' alt='' className='bizImage'></img>
                     <div className='bizInfo'>

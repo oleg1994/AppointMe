@@ -17,6 +17,7 @@
     text-shadow: 3px 5px 2px rgb(0, 0, 0);
     margin-top: 8px;
     margin-bottom: 8px;
+    margin-left:20px;
     height: fit-content;
     text-align: center;
     font-size: 23px;
@@ -60,8 +61,8 @@
     font-weight: 600;
     width: fit-content;
     padding: 6px;
-    border: 3px rgb(14, 159, 226) solid;
-    border-radius: 9.5%;
+    border: 2px rgb(0, 0, 0) solid;
+    border-radius: 3.5%;
     display: flex;
     justify-content: center;
     align-items: center;
