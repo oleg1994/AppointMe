@@ -28,15 +28,15 @@ function AddBusiness(props) {
         <form className='AddBusinessWrapper' onSubmit={saveBusiness}>
 
             <div className='AddBusinessText'>Please fill the form with the details of your business.</div>
-            <label htmlFor='BizName'>Business name:</label>
+            <label htmlFor='Business-name'>Business name:</label>
             <input className='inputSelf' id='Business-name'></input>
-            <label htmlFor='LocId'>Location:</label>
+            <label htmlFor='Location'>Location:</label>
             <input className='inputSelf' id='Location'></input>
-            <label htmlFor='Bizmail'>Business email</label>
+            <label htmlFor='Business-email'>Business email</label>
             <input className='inputSelf' id='Business-email' type='email' required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="The email you entered isn't a valid address"></input>
-            <div className='AddBusinessText'>Please select your business category.</div>
-            <select id='Category'>
-                <option value="Hair Salon">Select one</option>
+            <div className='AddBusinessText'>Select your business category.</div>
+            <select id='Category' required>
+            <option value="" disabled defaultValue='Select something...'>Select something...</option>
                 <option value="Hair Salon">Hair Salon's</option>
                 <option value="Nail Salon">Nail Salon's</option>
                 <option value="Tanning Salon">Tanning Salon's</option>
@@ -45,24 +45,32 @@ function AddBusiness(props) {
                 <option value="Massages">Massages</option>
                 <option value="Other">Other</option>
             </select>
-            <div className='AddBusinessText'>Please select amount of services your business provide.</div>
-
-            <select>
-                <option value="0"></option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-                <option value="11">11</option>
-                <option value="12">12</option>
-            </select>
-
+            <div className='AddBusinessText'>Fill the boxes down below with the services and prices your business provides.</div>
+            <div className='serviceNprice'>
+            <div className='serviceBoxes'>
+            {/*TODO:make the boxes added dynamic*/}
+            <label htmlFor='service'>Service:</label>
+            <input className='serviceBox' id='service' placeholder='Service'></input>
+            <label htmlFor='service'>Service:</label>
+            <input className='serviceBox' id='service' placeholder='Service'></input>
+            <label htmlFor='service'>Service:</label>
+            <input className='serviceBox' id='service' placeholder='Service'></input>
+            </div>
+            <div className='priceBoxes'>
+            <label htmlFor='service'>Price:</label>
+            <input className='serviceBox' id='service' placeholder='Price'></input>
+            <label htmlFor='service'>Price:</label>
+            <input className='serviceBox' id='service' placeholder='Price'></input>
+            <label htmlFor='service'>Price:</label>
+            <input className='serviceBox' id='service' placeholder='Price'></input>
+            </div>
+            </div>
+            <label htmlFor='addMore'>Add more services:</label>
+            <input type='button' id='addMore' value='+'/>
+            <div className='AddBusinessText'>Provide Business Photo/Logo.</div>
+                        {/*TODO:make the image upload*/}
+            <label htmlFor='Image'>Url to Business Photo/Logo:</label>
+            <input className='inputSelf' id='Image'></input>
             <input className='inputSelf' type='submit' value='submit'></input>
         </form>
     )
