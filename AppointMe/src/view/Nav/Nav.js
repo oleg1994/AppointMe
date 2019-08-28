@@ -7,7 +7,7 @@ import './Nav.css';
 function Nav() {
     return (
       <div className='navBar'>
-          <Link to={`/`} className='NavTitle'>Home</Link>
+          <Link to={`/`} className='NavTitle'>AppointMe</Link>
           <Link to={`/about`} className='NavTitle'>About</Link>
         
         </div>
