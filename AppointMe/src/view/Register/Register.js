@@ -19,7 +19,7 @@ function Register(props) {
       setMatchError(``)
 
 
-      fetch('http://localhost:4000/newUser', {
+      fetch('/newUser', {
         method: 'POST',
         body: JSON.stringify(userInfo),
         headers: {

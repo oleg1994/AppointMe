@@ -10,7 +10,7 @@ function Service({match}) {
 
 
     useEffect(() => {
-        fetch('http://localhost:4000/getBusinesses', {
+        fetch('/getBusinesses', {
         }).then(res => res.json())
             .then(response => {
                 setbiz(response)

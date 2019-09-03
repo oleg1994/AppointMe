@@ -21,7 +21,7 @@ function Login(props) {
   function loginFetch(e) {
     e.preventDefault()
     let userInfo = { username: `${user}`, password: `${password}`}
-    fetch('http://localhost:4000/Login', {
+    fetch('/Login', {
       method: 'POST',
       body: JSON.stringify(userInfo),
       headers: {
