@@ -53,18 +53,24 @@ function UserBusiness(props) {
     return (
       <div className='serviceWrapper'>
         <div className='serviceWrapper'>
+         
           {
-            biz.map((result, index) => {
-              return (
-                <div className='Buisness' key={index}>
-                 <div>{result.bizness.name}</div>
-                 <div>{result.bizness.category}</div>
-                  
-                </div>
-
-              )
-            })
-          }
+                        biz.map((result, index) => {
+                            return (
+                                <div className='Buisness' key={index}>
+                                    <img src='https://pbs.twimg.com/profile_images/2736392900/6cb90e48d2d7ab563fb5601df9d13cb8.jpeg' alt='' className='bizImage' ></img>
+                                    <div className='bizInfo' >
+                                        <div className='bizTitle'>{result.bizness.name}</div>
+                                        <div className='bizMenu'>
+                                            <div className='serviceItem'>{result.bizness.category}</div>
+                                            <div className='serviceItem'>{result.bizness.telephone}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            
+                            )
+                        })
+                    }
 
         </div>
 
