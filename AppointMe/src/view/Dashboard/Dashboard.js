@@ -18,7 +18,7 @@ function Dashboard(props) {
 
   useEffect(() => {
     // fetches user basic info
-    fetch('/getuserInfo', {
+    fetch('http://localhost:4000/getuserInfo', {
       method: 'POST',
       body: JSON.stringify({ token }),
       headers: {

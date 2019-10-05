@@ -13,7 +13,7 @@ function UserAppointments(props) {
     useEffect(() => {
 
         //fetches biz basic info
-        fetch('/appointmentInfo', {
+        fetch('http://localhost:4000/appointmentInfo', {
             method: 'POST',
             body: JSON.stringify({ token }),
             headers: {

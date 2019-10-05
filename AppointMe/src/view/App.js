@@ -13,6 +13,8 @@ import Appointment from './Appointment/Appointment';
 import { StateProvider } from '../Context/state';
 import Scheduling from './Scheduling/Scheduling';
 import About from './About/About';
+import Footer from './Footer/Footer';
+
 
 
 
@@ -51,6 +53,7 @@ function App() {
           <Route path='/appointment' component={Appointment} />
           <Route path='/scheduling' component={Scheduling} />
           <Route path='/about' component={About} />
+          <Footer/>
         </div>
       </Router>
     </StateProvider>

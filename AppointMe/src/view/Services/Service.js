@@ -10,13 +10,21 @@ function Service({match}) {
 
 
     useEffect(() => {
-        fetch('/getBusinesses', {
-        }).then(res => res.json())
+        let test = 'match.params.id';
+        fetch('http://localhost:4000/api/getBusinesses', {
+            method: 'POST',
+            body: JSON.stringify({ test }),
+            headers: {
+              'Content-Type': 'application/json'
+            }
+          }).then(res => res.json())
             .then(response => {
                 setbiz(response)
+                console.log(response)
             })
             .catch(error => console.error('Error:', error));
-    }, []);
+            
+    },[]);
 
 
  
@@ -26,7 +34,6 @@ function Service({match}) {
         case url = 'hair-salons': 
             return (
                 <div className='serviceWrapper'>
-                    {/* <Search /> */}
                     {
                         biz.map((result, index) => {
                             return (
@@ -52,7 +59,6 @@ function Service({match}) {
         case url = 'nail-salons':
             return (
                 <div className='serviceWrapper'>
-                {/* <Search /> */}
                 <div className='Buisness'>
                     <img src='https://pbs.twimg.com/profile_images/2736392900/6cb90e48d2d7ab563fb5601df9d13cb8.jpeg' alt='' className='bizImage'></img>
                     <div className='bizInfo'>

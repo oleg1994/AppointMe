@@ -24,6 +24,9 @@ const UserSchema = new mongoose.Schema({
     access: {
         type: String,
     },
+    business: {
+        type: String,
+    },
     date: {
         type: Date,
         default: Date.now

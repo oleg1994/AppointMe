@@ -121,10 +121,11 @@ app.post('/getuserInfo', function (req, res) {
 
 
 
-app.get('/getBusinesses', function (req, res) {
-    Businesses.find({}, { clients: 0, date: 0 }, function (err, result) {
+app.post('/api/getBusinesses', function (req, res) {
+    Businesses.find({}, { clients: 0, date: 0, appointments: 0 }, function (err, result) {
         if (err) {
             console.log('error')
+            res.send({ err: 'error not found any' })
         }
         if (result) {
             res.send(result)
@@ -210,7 +211,7 @@ app.post('/getAllBusinessesAppointments', function (req, res) {
         }
         const dateNtime = []
         const combineTimes = result.appointments.map((finds, index) => {
-            return dateNtime.push({ time: `${finds.timeOfAppointment}`, date:`${finds.dateOfAppointment}`})
+            return dateNtime.push({ time: `${finds.timeOfAppointment}`, date: `${finds.dateOfAppointment}` })
         })
 
         Promise.all(combineTimes).then(() => {
@@ -222,14 +223,58 @@ app.post('/getAllBusinessesAppointments', function (req, res) {
 });
 
 
-// let newBusinesse = new Businesses({
-//     name: 'The barbershop ',
-//     location: 'barberz place',
-//     appointments: 'one'
-// });
-// newBusinesse.save(function (err, newBusinesse) {
-//     if (err) return console.error(err);
-// });
+app.post('/registerBusiness', function (req, res) {
+    const { BusinessName, Location, telephone, BusinessEmail, Category, Image } = req.body.FinalArray
+    let serviceList = req.body.FinalArray.servicesNprices
+    let ownerToken = req.body.token
+
+
+    Businesses.findOne({ name: BusinessName }, function (err, alreadyExists) {
+        if (alreadyExists) {
+            res.send({ "failed": 'businesses already exists' })
+
+        }
+        if (!alreadyExists) {
+            // console.log('not')
+            let newBusinesse = new Businesses({
+                name: BusinessName,
+                location: Location,
+                telephone: telephone,
+                email: BusinessEmail,
+                category: Category,
+                logo: Image,
+                services: serviceList,
+                owner: ownerToken
+            });
+            newBusinesse.save(function (err, newBusinesse) {
+                if (err) {
+                    console.error(err)
+                }
+                if (newBusinesse) {
+                    User.findByIdAndUpdate(ownerToken, { business: newBusinesse.id }, function (err, result) {
+                        console.log(result)
+                    })
+                }
+
+            });
+            res.send({ "success": 'businesses registered' })
+        }
+        console.log(err)
+    })
+})
+app.post('/ownedBusiness', function (req, res) {
+    let ownerToken = req.body.token
+    Businesses.findOne({ owner: ownerToken }, function (err, result) {
+        if(err){
+            console.log(err)
+        }
+        if(result){
+            console.log(result)
+            res.send({'success':result})
+        }
+        
+    })
+})
 
 
 

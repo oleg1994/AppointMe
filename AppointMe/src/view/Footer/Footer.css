@@ -1,0 +1,23 @@
+.footerBlock {
+  color: white;
+  background: skyblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position:absolute;
+  bottom:0;
+  width:100%;
+  height:50px;
+  background:#6cf;
+  margin-top:20px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.footerBlock:hover {
+  background: rgb(0, 183, 255);
+  cursor: pointer;
+}
+
+.linkedinIcon{
+  height: 30px;
+}

@@ -16,7 +16,7 @@ function Appointment(props) {
 
   useEffect(() => {
     let service = localStorage.getItem('selectedService')
-    fetch('/getOneBusinesses', {
+    fetch('http://localhost:4000/getOneBusinesses', {
       method: 'POST',
       body: JSON.stringify({ service }),
       headers: {
