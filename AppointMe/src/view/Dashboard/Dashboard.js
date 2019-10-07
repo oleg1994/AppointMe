@@ -3,6 +3,7 @@ import './../Dashboard/Dashboard.css'
 import userPhoto from '../images/userPhoto.png';
 import UserAppointments from './UserAppointments/UserAppointments';
 import UserBusiness from './UserBusiness/UserBusiness';
+import InfoIcon from './../Pop-up/InfoIcon';
 
 
 

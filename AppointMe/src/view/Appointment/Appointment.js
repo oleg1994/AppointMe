@@ -7,6 +7,7 @@ import { useStateValue } from '../../Context/state';
 
 function Appointment(props) {
   const [serviceName, setserviceName] = useState('')
+  const [serviceLogo, setserviceLogo] = useState('')
   const [selected,] = useState([])
   const [servicesList, setservicesList] = useState([])
   const [atleastOne, setAtleastOne] = useState('')
@@ -25,7 +26,9 @@ function Appointment(props) {
     }).then(res => res.json())
       .then(async (response) => {
         setserviceName(response.name)
+        setserviceLogo(response.logo)
         setservicesList(response.services)
+        
 
       })
       .catch(error => console.error('Error:', error));
@@ -85,7 +88,7 @@ function Appointment(props) {
 
   return (
     <div className='AppointmentWrapper'>
-      <img className='AppointImg' src='https://res.cloudinary.com/sagacity/image/upload/c_crop,h_2832,w_4256,x_0,y_0/c_limit,dpr_auto,f_auto,fl_lossy,q_80,w_1080/_DSC0597a_i6bo5s.jpg' alt=''></img>
+      <img className='AppointImg' src={serviceLogo} alt=''></img>
       <div className='AppointName'>{serviceName}</div>
       <div className='AppointName'>Select service</div>
       {

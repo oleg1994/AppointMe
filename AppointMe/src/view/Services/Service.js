@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 function Service({match}) {
     let url = match.params.id;
     const [biz, setbiz] = useState([])
+    const [serviceLogo, setserviceLogo] = useState('')
     localStorage.removeItem('servicesMenu');
 
 
@@ -21,13 +22,13 @@ function Service({match}) {
           }).then(res => res.json())
             .then(response => {
                 setbiz(response)
-                console.log(response)
+                
             })
             .catch(error => console.error('Error:', error));
             
     },[]);
 
-console.log(biz)
+
  
 
 
@@ -37,10 +38,9 @@ console.log(biz)
                 <div className='serviceWrapper'>
                     {
                         biz.map((result, index) => {
-                          
                             return (
                                 <div className='Buisness' key={index}>
-                                    <img src='https://pbs.twimg.com/profile_images/2736392900/6cb90e48d2d7ab563fb5601df9d13cb8.jpeg' alt='' className='bizImage' ></img>
+                                    <img src={result.logo} alt='logo' className='bizImage' ></img>
                                     <div className='bizInfo' >
                                         <div className='bizTitle'>{result.name}</div>
                                         <div className='bizMenu'>

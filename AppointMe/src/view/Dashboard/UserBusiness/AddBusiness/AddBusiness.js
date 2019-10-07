@@ -80,7 +80,7 @@ function AddBusiness(props) {
         }
         var MergeTogether = arr.concat({ servicesNprices });
         let FinalArray = Object.assign({}, ...MergeTogether)
-
+        console.log(FinalArray)
         fetch('http://localhost:4000/registerBusiness', {
             method: 'POST',
             body: JSON.stringify({ FinalArray,token }),
@@ -91,7 +91,7 @@ function AddBusiness(props) {
             .then(response => {
                 if (response.success) {
                     console.log(response.success)
-                    setregisterCheck('registered')
+                    // setregisterCheck('registered')
                 }
                 if (response.failed) {
                     console.log(response.failed)
@@ -178,7 +178,7 @@ function AddBusiness(props) {
 
                 {/*TODO:make the image upload*/}
                 <label htmlFor='Image'>Url to Business Photo/Logo:</label>
-                <input className='inputSelf' id='Image'></input>
+                <input className='inputSelf' id='Image' required></input>
                 <input className='inputSelf' type='submit' value='submit'></input>
             </form>
         )
