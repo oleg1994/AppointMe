@@ -275,6 +275,16 @@ app.post('/ownedBusiness', function (req, res) {
         
     })
 })
+app.post('/changeAvatar', function (req, res) {
+    let userToken = req.body.token
+    console.log(userToken)
+
+
+
+    // User.findByIdAndUpdate(ownerToken, { business: newBusinesse.id }, function (err, result) {
+    //     console.log(result)
+    // })
+})
 
 
 

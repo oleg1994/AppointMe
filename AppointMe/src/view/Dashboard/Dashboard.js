@@ -31,12 +31,31 @@ function Dashboard(props) {
       .catch(error => console.error('Error:', error));
   }, [token]);
 
+
+
+  function changeAvatar(e) {
+    fetch('http://localhost:4000/changeAvatar', {
+      method: 'POST',
+      body: JSON.stringify({ token }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then(res => res.json())
+      .then(response => {
+        console.log(response)
+      })
+      .catch(error => console.error('Error:', error));
+  }
+
+
+
+
   function renderingCondition() {
     if (renderState === 'appointments') {
       return <UserAppointments />
     }
     if (renderState === 'business') {
-      return <UserBusiness /> 
+      return <UserBusiness />
     }
   }
 
@@ -45,7 +64,10 @@ function Dashboard(props) {
     <div className='DashboardWrapper'>
       <div className='dashboardTitle'>Dashboard</div>
       <div className='nameNphoto'>
+        <div className='avatarContainer'>
         <img className='userPhoto' src={userPhoto} alt="userPhoto" />
+        <i className="fas fa-ellipsis-h" onClick={e => changeAvatar()}></i>
+        </div>
         <div className='userName'>Hello,&nbsp;{username}</div>
       </div>
       <div className='dashboardNav'><div className='AppointTitle' onClick={e => setrenderState('appointments')}>My appointments <span></span></div><div className='AppointTitle' onClick={e => setrenderState('business')}>My business</div></div>
