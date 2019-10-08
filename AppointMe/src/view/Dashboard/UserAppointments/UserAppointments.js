@@ -22,11 +22,13 @@ function UserAppointments(props) {
         }).then(res => res.json())
             .then(response => {
                 setappointments(response)
+                console.log(response)
+
             })
             .catch(error => console.error('Error:', error));
     }, [token]);
 
-
+  
 
 
     return (
@@ -43,7 +45,7 @@ function UserAppointments(props) {
                                             <div className='editAppoint'><i className="fas fa-ellipsis-h"></i></div>
                                         </div>
                                         <div className='middleWrapper'>
-                                            <img className='placePhoto' src='https://pbs.twimg.com/profile_images/2736392900/6cb90e48d2d7ab563fb5601df9d13cb8.jpeg' alt="placePhoto" />
+                                            <img className='placePhoto' src={result.logo} alt="placePhoto" />
                                             <div className='placeLoc'>Address:&nbsp;{result.location},
                     <div className='servicePos'>Service:&nbsp;{second.services}</div>
                                                 <div className='appointTime'>{second.dateOfAppointment},{second.timeOfAppointment}</div>

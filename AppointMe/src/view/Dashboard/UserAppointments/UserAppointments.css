@@ -35,6 +35,7 @@
     font-size: 18px;
     padding: 1px;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.247);
+    line-height: 16px;
 
 }
 
@@ -49,6 +50,8 @@
     display: flex;
     width: 100%;
     height: 20%;
+    text-overflow: ellipsis; 
+
 }
 
 .placePhoto {
@@ -62,6 +65,7 @@
     margin: 15px auto auto 10px;
     width: 100%;
     height: fit-content;
+    line-height: 16px;
 }
 
 .appointTime {
@@ -70,10 +74,13 @@
     background: orange;
     width: fit-content;
     height: fit-content;
+    line-height: 16px;
+    
 }
 
 .servicePos {
-    margin: 8px auto auto auto;
-    width: 100%;
+    margin: 8px auto 0 0;
+    width:200px;
     height: fit-content;
+    overflow-wrap: break-word;
 }

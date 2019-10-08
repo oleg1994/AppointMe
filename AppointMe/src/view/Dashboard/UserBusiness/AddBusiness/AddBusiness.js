@@ -91,7 +91,7 @@ function AddBusiness(props) {
             .then(response => {
                 if (response.success) {
                     console.log(response.success)
-                    // setregisterCheck('registered')
+                    setregisterCheck('registered')
                 }
                 if (response.failed) {
                     console.log(response.failed)
@@ -148,7 +148,7 @@ function AddBusiness(props) {
                     <option value="Skin care">Facials and skin care treatments</option>
                     <option value="hair removal">Waxing and other forms of hair removal</option>
                     <option value="Massages">Massages</option>
-                    <option value="Other">Other</option>
+                    {/* <option value="Other">Other</option> */}
                 </select>
                 <div className='AddBusinessText'>Fill the boxes down below with the services and prices your business provides.</div>
                 {
@@ -156,7 +156,7 @@ function AddBusiness(props) {
                         return (
                             <div key={index} id={result.box} className='serviceNprice'>
                                 <div className='serviceBoxes' >
-                                    <input className='serviceBox' id='service' placeholder='Service' pattern="[A-Za-z]{3,20}" maxLength="20" title='required to be at least 3-20 characters long!' required></input>
+                                    <input className='serviceBox' id='service' placeholder='Service'  maxLength="25" title='required to be at least 3-15 characters long!' required></input>
                                 </div>
                                 <div className='priceBoxes'>
                                     <input className='serviceBoxPrice' id='servicePrice' placeholder='Price' type="text" required pattern="^\d{1,4}$" title='Input numbers only and at least 1-4 characters!' maxLength="4"></input>

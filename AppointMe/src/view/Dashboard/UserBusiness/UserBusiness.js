@@ -60,11 +60,11 @@ function UserBusiness(props) {
                 <div className='Buisness' key={index}>
                   <img src='https://i.imgur.com/CaFZ8N6.jpg' alt='' className='bizImage' ></img>
                   <div className='bizInfo' >
-                    <div className='bizTitle'>business name: {result.bizness.name}</div>
+                    <div className='bizTitle'>{result.bizness.name}</div>
                     <div className='bizMenu'>
-                      <div className='serviceItem'>business category: {result.bizness.category}</div>
-                      <div className='serviceItem'>business telephone: {result.bizness.telephone}</div>
-                      <div className='serviceItem'>amount of appointments scheduled: {result.bizness.appointments.length}</div>
+                      <div className='serviceItem'>Category: {result.bizness.category}</div>
+                      <div className='serviceItem'>Tel. {result.bizness.telephone}</div>
+                      <div className='serviceItem'>scheduled: {result.bizness.appointments.length}</div>
                     </div>
                   </div>
                 </div>

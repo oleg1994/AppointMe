@@ -10,7 +10,7 @@ import InfoIcon from './../Pop-up/InfoIcon';
 
 
 function Dashboard(props) {
-  const [username, setUsername] = useState('')
+  const [username, setUsername] = useState('....')
   const [renderState, setrenderState] = useState('appointments')
   // const [BizIds, setBizIds] = useState([])
   const [token,] = useState(localStorage.getItem('logged-token'))

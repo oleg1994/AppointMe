@@ -198,7 +198,12 @@ app.post('/appointmentInfo', function (req, res) {
             console.error(err)
         }
         Businesses.find({ "appointments.usernameID": token }, function (err, result) {
-            res.send(result)
+            if(err){
+                console.error(err)
+            }
+            if(result){
+                res.send(result)
+            }
         })
     });
 

@@ -67,7 +67,7 @@ function Appointment(props) {
 
   function CountinueButton() {
     if (localStorage.getItem('servicesMenu') === null) {
-      setAtleastOne('Please select at least one item!')
+      setAtleastOne('Please select at least one service!')
     }
     if (localStorage.getItem('servicesMenu') !== null && localStorage.getItem('servicesMenu').length !== 0) {
       setAtleastOne('')
@@ -96,7 +96,7 @@ function Appointment(props) {
           return (
             <form className='AppointInfo' key={index}>
               <div className='ServiceSelection'>
-                <div className='ServiceType'><input className='serviceCheckbox' type="checkbox" onChange={CheckifBoxIsChecked} name='Haircut' ></input>{Object.keys(result)}</div>
+                <div className='ServiceType'><input className='serviceCheckbox' type="checkbox" onChange={CheckifBoxIsChecked} name={Object.keys(result)} ></input>{Object.keys(result)}</div>
                 <div className='ServiceType'>{Object.values(result)}</div>
               </div>
             </form>
