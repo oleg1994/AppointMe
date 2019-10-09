@@ -82,5 +82,10 @@
     margin: 8px auto 0 0;
     width:200px;
     height: fit-content;
-    overflow-wrap: break-word;
+}
+
+@media screen and (max-width: 600px) {
+    .servicePos {
+        overflow-wrap: break-word;
+    }
 }

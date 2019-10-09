@@ -68,6 +68,7 @@ function Scheduling(props) {
             .catch(error => console.error('Error:', error));
     }, []);
 
+    console.log(date)
 
 
     function RegisterAppointment() {
@@ -75,7 +76,6 @@ function Scheduling(props) {
             let user = localStorage.getItem('logged-token')
             let buisness = localStorage.getItem('selectedService')
             let appointment = { user, buisness, date, time, serviceList }
-
             fetch('http://localhost:4000/registerAppointment', {
                 method: 'POST',
                 body: JSON.stringify({ appointment }),
