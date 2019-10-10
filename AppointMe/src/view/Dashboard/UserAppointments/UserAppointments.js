@@ -27,17 +27,14 @@ function UserAppointments(props) {
             .catch(error => console.error('Error:', error));
     }, [token]);
 
-
-
     return (
         <div className='UserAppointmentsWrapper'>
             {
                 appointments.map((result, index) => {
                     return appointments[index].appointments.map((second, index) => {
                         var appointDate = second.dateOfAppointment.slice(3)
-                        var dateTommorow = new Date(new Date().getTime() + 60 * 60 * 24 * 1000).toDateString().slice(3);
+                        var dateTomorrow = new Date(new Date().getTime() + 60 * 60 * 24 * 1000).toDateString().slice(3);
                         console.log(appointDate)
-                        console.log(dateTommorow)
                         return (
                             <div key={index}>
                                 <div className='AppointmentList'>
@@ -49,7 +46,7 @@ function UserAppointments(props) {
                                         <div className='middleWrapper'>
                                             <img className='placePhoto' src={result.logo} alt="placePhoto" />
                                             <div className='placeLoc'>Address:&nbsp;{result.location},
-                    <div className='servicePos'>Service:&nbsp;{second.services.replace(/,/g, ', ')}</div>
+                                            <div className='servicePos'>Service:&nbsp;{second.services.replace(/,/g, ', ')}</div>
                                                 <div className='appointTime'>{second.dateOfAppointment},{second.timeOfAppointment}</div>
                                             </div>
                                         </div>
