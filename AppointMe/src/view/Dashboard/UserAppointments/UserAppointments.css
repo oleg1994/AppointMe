@@ -1,6 +1,6 @@
 .AppointmentList {
-    min-height:100%;
-    width: 100%
+    min-height: 100%;
+    width: 100%;
 }
 
 .appointItem {
@@ -36,7 +36,6 @@
     padding: 1px;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.247);
     line-height: 16px;
-
 }
 
 .editAppoint {
@@ -48,16 +47,19 @@
 
 .middleWrapper {
     display: flex;
-    width: 100%;
-    height: 20%;
-    text-overflow: ellipsis; 
-
+    height: auto;
+    width: auto;
+    text-overflow: ellipsis;
+}
+.containerplacePhoto {
+    width: 200px;
+    height: 120px;
 }
 
 .placePhoto {
     border-radius: 5px;
-    height: 100px;
-    width: 120px;
+    width: 90%;
+    height: 80%;
     margin: 5px auto 5px 10px;
 }
 
@@ -75,12 +77,11 @@
     width: fit-content;
     height: fit-content;
     line-height: 16px;
-    
 }
 
 .servicePos {
     margin: 8px auto 0 0;
-    width:200px;
+    width: 200px;
     height: fit-content;
 }
 

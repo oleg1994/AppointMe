@@ -28,7 +28,7 @@ function Appointment(props) {
         setserviceName(response.name)
         setserviceLogo(response.logo)
         setservicesList(response.services)
-        
+
 
       })
       .catch(error => console.error('Error:', error));
@@ -42,7 +42,6 @@ function Appointment(props) {
   function CheckifBoxIsChecked(e) {
     if (e.target.checked === true) {
       selected.push(e.target.name)
-      console.log(selected)
       localStorage.setItem('servicesMenu', selected)
       dispatchServiceFill({
         type: 'addtoservicePackage',
@@ -54,7 +53,6 @@ function Appointment(props) {
       var index = selected.indexOf(e.target.name);
       if (index > -1) {
         selected.splice(index, 1);
-        // console.log(selected)
         localStorage.setItem('servicesMenu', selected)
         dispatchServiceFill({
           type: 'addtoservicePackage',
@@ -88,16 +86,19 @@ function Appointment(props) {
 
   return (
     <div className='AppointmentWrapper'>
-      <img className='AppointImg' src={serviceLogo} alt=''></img>
+      <div className='AppointImgContainer'>
+        <img className='AppointImg' src={serviceLogo} alt=''></img>
+      </div>
       <div className='AppointName'>{serviceName}</div>
       <div className='AppointName'>Select service</div>
+      <div className="Splitter"></div>
       {
         servicesList.map((result, index) => {
           return (
             <form className='AppointInfo' key={index}>
               <div className='ServiceSelection'>
                 <div className='ServiceType'><input className='serviceCheckbox' type="checkbox" onChange={CheckifBoxIsChecked} name={Object.keys(result)} ></input>{Object.keys(result)}</div>
-                <div className='ServiceType'>{Object.values(result)}</div>
+                <div className='ServiceTypePrice'>{Object.values(result)}</div>
               </div>
             </form>
           )

@@ -2,7 +2,6 @@ import React, { } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 import Category from './Category/Category';
-import Sort from './Sort/Sort';
 import Nav from './Nav/Nav';
 import Header from './Header/Header';
 import Service from './Services/Service'
@@ -18,9 +17,11 @@ import Footer from './Footer/Footer';
 
 
 
+
 function App() {
   const appState = {
     loginCheck: { status: 'false' },
+    popUp: { status: false, message: '',url:'' },
     servicePackage: [],
   };
   const reducer = (state, action) => {
@@ -29,6 +30,8 @@ function App() {
         return { ...state, loginCheck: action.payload };
       case 'addtoservicePackage':
         return { ...state, servicePackage: action.payload };
+      case 'popUp':
+        return { ...state, popUp: action.payload };
       default:
         return state;
     }
@@ -45,7 +48,6 @@ function App() {
           <Header />
           <Nav />
           <Route exact path='/' component={Category} />
-          <Route path='/placeholder' component={Sort} />
           <Route path='/service/:id' component={Service} />
           <Route path='/register' component={Register} />
           <Route path='/login' component={Login} />
@@ -53,7 +55,7 @@ function App() {
           <Route path='/appointment' component={Appointment} />
           <Route path='/scheduling' component={Scheduling} />
           <Route path='/about' component={About} />
-          <Footer/>
+          <Footer />
         </div>
       </Router>
     </StateProvider>

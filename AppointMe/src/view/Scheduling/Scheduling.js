@@ -3,6 +3,8 @@ import DatePicker from "react-datepicker";
 import './../Scheduling/Scheduling.css'
 import "react-datepicker/dist/react-datepicker.css";
 import { useStateValue } from '../../Context/state';
+import Info from '../Pop-up/InfoIcon';
+
 
 
 
@@ -15,7 +17,7 @@ function Scheduling(props) {
     const [time, setTime] = useState('Select time')
     const [date, setDate] = useState('Select date')
     const [servicename, setserviceName] = useState()
-    const [serviceContext,] = useStateValue();
+    const [serviceContext, setserviceContext] = useStateValue();
     const [serviceList, setserviceList] = useState(serviceContext.servicePackage.selected)
     const [excluded, setexcluded] = useState([])
 
@@ -68,11 +70,10 @@ function Scheduling(props) {
             .catch(error => console.error('Error:', error));
     }, []);
 
-    console.log(date)
 
 
     function RegisterAppointment() {
-        if (date !== 'Select date' && time !== 'Select time') {
+        if (localStorage.getItem('logged-token') && date !== 'Select date' && time !== 'Select time') {
             let user = localStorage.getItem('logged-token')
             let buisness = localStorage.getItem('selectedService')
             let appointment = { user, buisness, date, time, serviceList }
@@ -92,6 +93,12 @@ function Scheduling(props) {
                     }
                 })
                 .catch(error => console.error('Error:', error));
+        } else {
+            setserviceContext({
+                type: 'popUp',
+                payload: { status: true, message: 'Please sign-in or register to proceed',url:`/scheduling`}  //payload
+            })
+
         }
     }
 
@@ -127,6 +134,7 @@ function Scheduling(props) {
 
     return (
         <div className='CalendarWrapper'>
+            <Info />
             <div className='AppointName'>Select the day of appointment</div>
             <div className='timeandDate' >
                 <DatePicker

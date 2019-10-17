@@ -11,7 +11,6 @@ function UserAppointments(props) {
 
 
     useEffect(() => {
-
         //fetches biz basic info
         fetch('http://localhost:4000/appointmentInfo', {
             method: 'POST',
@@ -22,7 +21,6 @@ function UserAppointments(props) {
         }).then(res => res.json())
             .then(response => {
                 setappointments(response)
-
             })
             .catch(error => console.error('Error:', error));
     }, [token]);
@@ -34,7 +32,6 @@ function UserAppointments(props) {
                     return appointments[index].appointments.map((second, index) => {
                         var appointDate = second.dateOfAppointment.slice(3)
                         var dateTomorrow = new Date(new Date().getTime() + 60 * 60 * 24 * 1000).toDateString().slice(3);
-                        console.log(appointDate)
                         return (
                             <div key={index}>
                                 <div className='AppointmentList'>
@@ -44,7 +41,9 @@ function UserAppointments(props) {
                                             <div className='editAppoint'><i className="fas fa-ellipsis-h"></i></div>
                                         </div>
                                         <div className='middleWrapper'>
-                                            <img className='placePhoto' src={result.logo} alt="placePhoto" />
+                                            <div className="containerplacePhoto">
+                                                <img className='placePhoto' src={result.logo} alt="placePhoto" />
+                                            </div>
                                             <div className='placeLoc'>Address:&nbsp;{result.location},
                                             <div className='servicePos'>Service:&nbsp;{second.services.replace(/,/g, ', ')}</div>
                                                 <div className='appointTime'>{second.dateOfAppointment},{second.timeOfAppointment}</div>
@@ -57,6 +56,7 @@ function UserAppointments(props) {
                     })
                 })
             }
+            <div className="Splitter"></div>
         </div>
 
 

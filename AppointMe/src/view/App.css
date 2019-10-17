@@ -19,6 +19,7 @@ a {
     align-items: center;
     cursor: pointer;
     user-select: none;
+    -webkit-user-drag: none;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     background: rgba(255, 84, 4, 0.699);
     color: white;

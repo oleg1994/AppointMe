@@ -29,7 +29,6 @@ function Login(props) {
       }
     }).then(res => res.json())
       .then(response => {
-        console.log(response)
         if(response.logged === false){
           setInvalidUser('username or password is incorrect')
           setVisibility({ display: 'block' })
@@ -57,7 +56,7 @@ function Login(props) {
       <div className='inputPos' style={visibility}><div className='InvalidUser'>{InvalidUser}</div></div>
       <div className='inputPos'>Username<input className='inputSelf' type='text' required value={user} onChange={e => setUser(e.target.value)} ></input></div>
       <div className='inputPos'>Password<input className='inputSelf' type='password' required value={password} onChange={e => setPassword(e.target.value)} ></input></div>
-      <div className='inputPos'><input className='inputSelf' type='submit' value='Login' required></input></div>
+      <div className='inputPos'><input className='OrangeButton' type='submit' value='Login' required></input></div>
     </form>
   );
 }

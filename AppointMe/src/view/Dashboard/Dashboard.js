@@ -43,7 +43,6 @@ function Dashboard(props) {
       }
     }).then(res => res.json())
       .then(response => {
-        console.log(response)
       })
       .catch(error => console.error('Error:', error));
   }

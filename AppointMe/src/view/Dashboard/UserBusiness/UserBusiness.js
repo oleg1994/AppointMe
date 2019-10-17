@@ -37,7 +37,6 @@ function UserBusiness(props) {
     }
 
   }
-  console.log(biz)
 
 
   if (renderState === 'noBusiness') {
@@ -53,7 +52,6 @@ function UserBusiness(props) {
     return (
       <div className='serviceWrapper'>
         <div className='serviceWrapper'>
-        <div>Your business</div>
           {
             biz.map((result, index) => {
               return (
@@ -72,9 +70,7 @@ function UserBusiness(props) {
               )
             })
           }
-
         </div>
-
       </div>
     );
   }

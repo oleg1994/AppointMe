@@ -27,7 +27,6 @@ function Service({ match }) {
             }
         }).then(res => res.json())
             .then(response => {
-                console.log(response)
                 setallBiz(response)
             })
             .catch(error => console.error('Error:', error));

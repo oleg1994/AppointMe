@@ -1,45 +1,67 @@
 .AppointmentWrapper {
     height: 100%;
     width: 100%;
+
 }
 
+.AppointImgContainer {
+    height: 200px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background:gray;
+
+}
 .AppointImg {
     height: 200px;
     width: 100%;
+    max-width: 500px;
     border: 3px solid rgb(25, 76, 88);
 }
 
 .AppointInfo {
+    position: relative;
+    left:0;
     width: 100%;
+    height: auto;
+    display: flex;
+    justify-self: left;
 }
 
 .AppointName {
     border: 3px solid rgb(25, 76, 88);
     width: 100%;
+    /* max-width: 500px; */
     height: fit-content;
     font-size: 100%;
-    display: flex;
-    justify-content: center;
+    text-align: center;
+    margin:auto;
     padding: 2px;
 }
 
 .ServiceSelection {
-    margin: 20px auto auto auto;
+    margin-top: 20px;
     width: 100%;
     height: fit-content;
     display: flex;
-    justify-content: center;
-    align-content: flex-start;
+    justify-content: space-evenly;
+    
 }
 
 .ServiceType {
     margin-top: 8px;
-    width: 100%;
+    min-width: 15rem;
+    width: fit-content;
     height: fit-content;
     font-size: 20px;
-    white-space: nowrap;
     display: flex;
-    justify-content: center;
+    justify-content: left;
+}
+.ServiceTypePrice {
+    margin-top: 8px;
+    width: fit-content;
+    height: fit-content;
+    font-size: 20px;
 }
 
 .serviceCheckbox {
