@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './../Register/Register.css'
-import InfoIcon from './../Pop-up/InfoIcon';
 import { useStateValue } from '../../Context/state';
 import Info from './../Pop-up/InfoIcon';
 
@@ -19,7 +18,7 @@ function Register(props) {
   const [passwordMatch, setPasswordMatch] = useState("");
   const [MatchError, setMatchError] = useState("");
 
-  const [appState, dispatchappState] = useStateValue();
+  const [, dispatchappState] = useStateValue();
 
 
 

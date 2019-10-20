@@ -2,8 +2,6 @@ import React, { } from 'react';
 import './Header.css';
 import { Link } from 'react-router-dom';
 import { useStateValue } from '../../Context/state';
-import Info from './../Pop-up/InfoIcon';
-
 
 
 

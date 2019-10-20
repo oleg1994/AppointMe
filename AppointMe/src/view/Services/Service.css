@@ -17,6 +17,7 @@
     border: 1px solid skyblue;
     box-shadow: 2px 2px 2px 0px #404041;
     width: 95%;
+    max-width: 650px;
     transition: box-shadow, 1.15s, ease-in;
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
@@ -49,6 +50,7 @@
 }
 
 .bizImage {
+    border:2px rgba(128, 128, 128, 0.562) solid;
     border-radius: 5px;
     height: 120px;
     width: 120px;

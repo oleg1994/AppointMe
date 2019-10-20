@@ -10,6 +10,13 @@ function UserAppointments(props) {
 
 
 
+    const oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
+    const firstDate = new Date(2008, 1, 12);
+    const secondDate = new Date(2009, 1, 22);
+    
+    
+    
+
     useEffect(() => {
         //fetches biz basic info
         fetch('http://localhost:4000/appointmentInfo', {
@@ -30,8 +37,10 @@ function UserAppointments(props) {
             {
                 appointments.map((result, index) => {
                     return appointments[index].appointments.map((second, index) => {
-                        var appointDate = second.dateOfAppointment.slice(3)
-                        var dateTomorrow = new Date(new Date().getTime() + 60 * 60 * 24 * 1000).toDateString().slice(3);
+                        var appointDate = second.dateOfAppointment.parse()
+                        const diffDays = Math.round(Math.abs((appointDate - firstDate.toDateString()) / oneDay));
+                        console.log(appointDate)
+                        // var dateTomorrow = new Date(new Date().getTime() + 60 * 60 * 24 * 1000).toDateString().slice(3);
                         return (
                             <div key={index}>
                                 <div className='AppointmentList'>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './InfoIcon.css';
 import { useStateValue } from '../../Context/state';
 import { Link } from 'react-router-dom';
@@ -8,8 +8,6 @@ import { Link } from 'react-router-dom';
 
 function Info() {
     const [upState, dispatchupState] = useStateValue();
-    const [state, setstate] = useState('initialState')
-
     function clicktoContinue() {
         dispatchupState({
             type: 'popUp',

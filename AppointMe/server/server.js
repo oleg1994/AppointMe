@@ -198,10 +198,10 @@ app.post('/appointmentInfo', function (req, res) {
             console.error(err)
         }
         Businesses.find({ "appointments.usernameID": token }, function (err, result) {
-            if(err){
+            if (err) {
                 console.error(err)
             }
-            if(result){
+            if (result) {
                 res.send(result)
             }
         })
@@ -237,7 +237,6 @@ app.post('/registerBusiness', function (req, res) {
     Businesses.findOne({ name: BusinessName }, function (err, alreadyExists) {
         if (alreadyExists) {
             res.send({ "failed": 'businesses already exists' })
-
         }
         if (!alreadyExists) {
             // console.log('not')
@@ -260,7 +259,6 @@ app.post('/registerBusiness', function (req, res) {
                         console.log(result)
                     })
                 }
-
             });
             res.send({ "success": 'businesses registered' })
         }
@@ -270,14 +268,36 @@ app.post('/registerBusiness', function (req, res) {
 app.post('/ownedBusiness', function (req, res) {
     let ownerToken = req.body.token
     Businesses.findOne({ owner: ownerToken }, function (err, result) {
-        if(err){
+        if (err) {
             console.log(err)
         }
-        if(result){
-            console.log(result)
-            res.send({'success':result})
+        if (result) {
+            let arrayOfIds = []
+            result.appointments.forEach(element => {
+                arrayOfIds.push(element.usernameID)
+            })
+            User.find({ _id: { $in: arrayOfIds } }, { password: 0, email: 0, date: 0, business: 0, appointments: 0 }, function (err, users) {
+                if (err) {
+                    console.error(err);
+                }
+                if (!users) {
+                    res.send({ 'business': result })
+                }
+                if (users) {
+                    Appointments.find({ usernameID: { $in: arrayOfIds }, buisnessesID: result._id }, { _id: 0 }, function (err, appoints) {
+                        if (err) {
+                            console.log(err)
+                        }
+                        if (appoints) {
+                            console.log(appoints)
+                            res.send({ 'business': result, 'usersInfo': users, 'appoints': appoints })
+                        }
+                    })
+                }
+
+            })
         }
-        
+
     })
 })
 app.post('/changeAvatar', function (req, res) {
@@ -290,22 +310,6 @@ app.post('/changeAvatar', function (req, res) {
     //     console.log(result)
     // })
 })
-
-
-
-
-
-
-// let newAppointment = new Appointments({
-//     usernameID: '007',
-//     buisnessesID: '123456',
-//     dateOfAppointment: '2013',
-//     timeOfAppointment: '2013',
-//     services: 'hair cutting',
-// });
-// newAppointment.save(function (err, newAppointment) {
-//     if (err) return console.error(err);
-// });
 
 
 

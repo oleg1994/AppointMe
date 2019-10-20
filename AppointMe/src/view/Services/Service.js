@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import './Service.css';
-import Search from '../Search/Search'
 import { Link } from 'react-router-dom';
 
 

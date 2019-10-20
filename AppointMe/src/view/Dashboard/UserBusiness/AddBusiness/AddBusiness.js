@@ -36,7 +36,7 @@ function AddBusiness(props) {
         });
 
         let OnlyServices = []
-        let OnlyServicesFunction = arrayWithServiceNpriceNcurrency.map((result, index) => {
+        arrayWithServiceNpriceNcurrency.map((result, index) => {   //OnlyServicesFunction
             OnlyServices.push(result.service)
             return result
 
@@ -48,7 +48,7 @@ function AddBusiness(props) {
         OnlyServices = Servicesfiltered
 
         let OnlyPrice = []
-        let OnlyPriceFunction = arrayWithServiceNpriceNcurrency.map((result, index) => {
+        arrayWithServiceNpriceNcurrency.map((result, index) => { //OnlyPriceFunction
             OnlyPrice.push(result.servicePrice)
             return result
 
@@ -60,7 +60,7 @@ function AddBusiness(props) {
         OnlyPrice = Pricefiltered
 
         let OnlyCurrency = []
-        let OnlyCurrencyFunction = arrayWithServiceNpriceNcurrency.map((result, index) => {
+        arrayWithServiceNpriceNcurrency.map((result, index) => { //OnlyCurrencyFunction
             OnlyCurrency.push(result.currency)
             return result
         })
@@ -83,7 +83,7 @@ function AddBusiness(props) {
         console.log(FinalArray)
         fetch('http://localhost:4000/registerBusiness', {
             method: 'POST',
-            body: JSON.stringify({ FinalArray,token }),
+            body: JSON.stringify({ FinalArray, token }),
             headers: {
                 'Content-Type': 'application/json'
             }
@@ -156,7 +156,7 @@ function AddBusiness(props) {
                         return (
                             <div key={index} id={result.box} className='serviceNprice'>
                                 <div className='serviceBoxes' >
-                                    <input className='serviceBox' id='service' placeholder='Service'  maxLength="25" title='required to be at least 3-15 characters long!' required></input>
+                                    <input className='serviceBox' id='service' placeholder='Service' maxLength="25" title='required to be at least 3-15 characters long!' required></input>
                                 </div>
                                 <div className='priceBoxes'>
                                     <input className='serviceBoxPrice' id='servicePrice' placeholder='Price' type="text" required pattern="^\d{1,4}$" title='Input numbers only and at least 1-4 characters!' maxLength="4"></input>

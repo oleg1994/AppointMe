@@ -1,3 +1,34 @@
-.UserBusinessTextNoBiz{
- text-align: center;
+.UserBusinessTextNoBiz {
+  text-align: center;
+}
+
+.userList {
+  animation: slide-in-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  margin: 10px auto auto auto;
+  height: fit-content;
+  background-color: #ffffff;
+  border-radius: 5px;
+  border: 1px solid skyblue;
+  box-shadow: 2px 2px 2px 0px #404041;
+  max-width: 500px;
+  width: 90%;
+  transition: box-shadow, 1.15s, ease-in;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.log {
+  margin-top:5px;
+  margin-bottom:5px;
+  font-weight: 900;
+  display: flex;
+}
+.logInner{
+  font-weight: initial;
+  background:rgba(255, 174, 0, 0.548);
+  width: fit-content;
+  border-radius: 15px;
+
 }
