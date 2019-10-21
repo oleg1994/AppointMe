@@ -57,7 +57,7 @@ function Scheduling(props) {
 
     useEffect(() => {
         let service = localStorage.getItem('selectedService')
-        fetch('http://localhost:4000/getOneBusinesses', {
+        fetch('/getOneBusinesses', {
             method: 'POST',
             body: JSON.stringify({ service }),
             headers: {
@@ -107,7 +107,7 @@ function Scheduling(props) {
     useEffect(() => {
         let tempData = []
         let service = localStorage.getItem('selectedService')
-        fetch('http://localhost:4000/getAllBusinessesAppointments', {
+        fetch('/getAllBusinessesAppointments', {
             method: 'POST',
             body: JSON.stringify({ service }),
             headers: {
@@ -135,7 +135,7 @@ function Scheduling(props) {
     return (
         <div className='CalendarWrapper'>
             <Info />
-            <div className='AppointName'>Select the day of appointment</div>
+            <div className='AppointName'>Select the day and time</div>
             <div className='timeandDate' >
                 <DatePicker
                     selected={startDate}

@@ -9,8 +9,8 @@ import AddBusiness from './AddBusiness/AddBusiness';
 function UserBusiness(props) {
   const [renderState, setrenderState] = useState('noBusiness')
   const [biz, setbiz] = useState([])
-  const [test, settest] = useState([])
-  const [fest, setfest] = useState([])
+  const [appointz, setAppoint] = useState([])
+  const [users, setUser] = useState([])
   const [token,] = useState(localStorage.getItem('logged-token'))
 
 
@@ -29,22 +29,21 @@ function UserBusiness(props) {
           let biznessAppoints = response.appoints
           let biznessUsers = response.usersInfo
           setbiz(bizness)
-          settest(biznessAppoints)
-          setfest(biznessUsers)
+          setAppoint(biznessAppoints)
+          setUser(biznessUsers)
           setrenderState('HasBusiness')
         }
       })
       .catch(error => console.error('Error:', error));
   }, [token])
  
-  for (let i = 0; i < test.length; i++) {
-    for (let j = 0; j < fest.length; j++) {
-      if (test[i].usernameID === fest[j]._id) {
-        test[i].usernameID = fest[j].username
+  for (let i = 0; i < appointz.length; i++) {
+    for (let j = 0; j < users.length; j++) {
+      if (appointz[i].usernameID === users[j]._id) {
+        appointz[i].usernameID = users[j].username
       }
     }
   }
-
   function RenderingOptions() {
     if (renderState !== 'NewBiz') {
       setrenderState('NewBiz')
@@ -68,10 +67,11 @@ function UserBusiness(props) {
         <div className='serviceWrapper'>
           {
             [biz].map((result, index) => {
+              console.log(result)
               return (
                 <div key={index}>
                   <div className='Buisness'>
-                    <img src='https://i.imgur.com/CaFZ8N6.jpg' alt='' className='bizImage' ></img>
+                    <img src={result.logo} alt='' className='bizImage' ></img>
                     <div className='bizInfo' >
                       <div className='bizTitle'>{result.name}</div>
                       <div className='bizMenu'>
@@ -86,7 +86,7 @@ function UserBusiness(props) {
             })
           }
           {
-            test.map((result, index) => {
+            appointz.map((result, index) => {
               return (
                 <div key={index} className='userList'>
                   <div className='log'>NAME:<div className='logInner'>{result.usernameID}</div></div>

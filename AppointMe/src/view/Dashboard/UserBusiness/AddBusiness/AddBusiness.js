@@ -23,7 +23,7 @@ function AddBusiness(props) {
         var arr = [];
 
         for (var i = 0; i < formFields.length; i++) {
-            var formInputData = {}; // <---- Move declaration inside loop
+            var formInputData = {};
             formInputData[formFields[i].id] = formFields[i].value;
             arr.push(formInputData);
         }
@@ -90,7 +90,6 @@ function AddBusiness(props) {
         }).then(res => res.json())
             .then(response => {
                 if (response.success) {
-                    console.log(response.success)
                     setregisterCheck('registered')
                 }
                 if (response.failed) {
@@ -136,7 +135,7 @@ function AddBusiness(props) {
                 <label htmlFor='Location'>Location:</label>
                 <input className='inputSelf' id='Location' required></input>
                 <label htmlFor='telephone'>Telephone:</label>
-                <input className='inputSelf' id='telephone' type="number" onBlur={e => phoneValidation(e.target.value)} required title={warning} pattern='^.{10,}$' placeholder='050-555-5555'></input>
+                <input className='inputSelf' id='telephone' type="number" onBlur={e => phoneValidation(e.target.value)} required title={warning}  pattern=".{10,10}" placeholder='050-555-5555'></input>
                 <label htmlFor='Business-email'>Business email</label>
                 <input className='inputSelf' id='BusinessEmail' type='email' required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="The email you entered isn't a valid address"></input>
                 <div className='AddBusinessText'>Select your business category.</div>
@@ -148,7 +147,6 @@ function AddBusiness(props) {
                     <option value="Skin care">Facials and skin care treatments</option>
                     <option value="hair removal">Waxing and other forms of hair removal</option>
                     <option value="Massages">Massages</option>
-                    {/* <option value="Other">Other</option> */}
                 </select>
                 <div className='AddBusinessText'>Fill the boxes down below with the services and prices your business provides.</div>
                 {
@@ -156,7 +154,7 @@ function AddBusiness(props) {
                         return (
                             <div key={index} id={result.box} className='serviceNprice'>
                                 <div className='serviceBoxes' >
-                                    <input className='serviceBox' id='service' placeholder='Service' maxLength="25" title='required to be at least 3-15 characters long!' required></input>
+                                    <input className='serviceBox' id='service' placeholder='Service' maxLength="25" pattern=".{5,10}" title='required to be at least 3-15 characters long!' required></input>
                                 </div>
                                 <div className='priceBoxes'>
                                     <input className='serviceBoxPrice' id='servicePrice' placeholder='Price' type="text" required pattern="^\d{1,4}$" title='Input numbers only and at least 1-4 characters!' maxLength="4"></input>
@@ -178,7 +176,7 @@ function AddBusiness(props) {
 
                 {/*TODO:make the image upload*/}
                 <label htmlFor='Image'>Url to Business Photo/Logo:</label>
-                <input className='inputSelf' id='Image' required></input>
+                <input className='inputSelf' id='Image' required pattern=".{8,50}"></input>
                 <input className='inputSelf' type='submit' value='submit'></input>
             </form>
         )

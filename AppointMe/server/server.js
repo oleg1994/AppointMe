@@ -197,14 +197,14 @@ app.post('/appointmentInfo', function (req, res) {
         if (err) {
             console.error(err)
         }
-        Businesses.find({ "appointments.usernameID": token }, function (err, result) {
+        Businesses.find({ "appointments.usernameID": token }).sort({ date: 'desc' }).exec(function (err, result) {
             if (err) {
                 console.error(err)
             }
             if (result) {
                 res.send(result)
             }
-        })
+        });
     });
 
 });
